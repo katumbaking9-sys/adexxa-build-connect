@@ -182,9 +182,13 @@ function ProductsPage() {
 
                     {items.length > 0 ? (
                       <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                        {items.map((p) => (
-                          <ProductCard key={p.slug} product={p} />
-                        ))}
+                       {items.map((p, index) => (
+  <ProductCard
+    key={p.slug}
+    product={p}
+    delay={index * 0.15}
+  />
+))}
                       </div>
                     ) : (
                       <p className="mt-6 text-sm text-muted-foreground">No products match the current filters.</p>
