@@ -77,7 +77,7 @@
   --muted-foreground: oklch(0.48 0.015 150);
 
   /* Subtle blue accent */
-  --accent: oklch(0.46 0.13 245);
+  --accent: oklch(0.30 0.13 150);
   --accent-foreground: oklch(0.98 0 0);
 
   /* Destructive */
