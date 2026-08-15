@@ -49,9 +49,9 @@ export const site = {
     },
 
     hours: {
-      value: "Working hours to be confirmed",
-      label: "Working hours to be confirmed",
-      isPlaceholder: true,
+      value: "8:00 AM – 5:00 PM",
+      label: "8:00 AM – 5:00 PM",
+      isPlaceholder: false,
     },
   },
 
