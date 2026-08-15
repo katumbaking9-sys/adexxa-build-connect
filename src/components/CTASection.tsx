@@ -23,11 +23,7 @@ export function CTASection({
           <p className="mt-4 text-ink-muted">{description}</p>
         </div>
         <div className="flex flex-wrap gap-3">
-          <Link
-            to="/contact"
-            search={productName ? { product: productName } : undefined}
-            className={btn("accent", "lg")}
-          >
+          <Link to="/contact" search={{ product: productName }} className={btn("accent", "lg")}>
             {productName ? "Ask About This Product" : "Enquire Now"}
           </Link>
           <a
