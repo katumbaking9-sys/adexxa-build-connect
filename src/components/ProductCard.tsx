@@ -1,6 +1,6 @@
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
 import { PLACEHOLDER, categoryName, type Product } from "@/data/products";
 import { PlaceholderValue } from "@/components/Placeholder";
 import { btn } from "@/lib/ui";
@@ -27,9 +27,7 @@ export function ProductCard({
           observer.unobserve(element);
         }
       },
-      {
-        threshold: 0.12,
-      },
+      { threshold: 0.12 }
     );
 
     observer.observe(element);
@@ -40,12 +38,12 @@ export function ProductCard({
   return (
     <article
       ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`group flex h-full flex-col border border-border bg-card transition-all duration-700 ease-out hover:-translate-y-1 hover:border-accent ${
-        visible
-          ? "translate-y-0 opacity-100"
-          : "translate-y-10 opacity-0"
+      className={`group flex h-full flex-col border border-border bg-card transition-all duration-700 hover:-translate-y-1 hover:border-accent ${
+        visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
       }`}
+      style={{
+        transitionDelay: `${delay}ms`,
+      }}
     >
       <div className="relative overflow-hidden bg-concrete">
         <img
