@@ -43,7 +43,14 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div className={cn("max-w-2xl", align === "center" && "mx-auto text-center", className)}>
+    return (
+  <div
+    className={cn(
+      "max-w-2xl reveal",
+      align === "center" && "mx-auto text-center",
+      className,
+    )}
+  >
       {eyebrow ? (
         <p className={cn("eyebrow", tone === "ink" ? "text-accent" : "text-accent-foreground/80")}>{eyebrow}</p>
       ) : null}
