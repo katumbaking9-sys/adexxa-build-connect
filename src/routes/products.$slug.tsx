@@ -41,7 +41,7 @@ function ProductNotFound() {
       <Container className="text-center">
         <h1 className="text-3xl">Product not found</h1>
         <p className="mt-3 text-muted-foreground">This product is not part of the current ADEXXA catalogue.</p>
-        <Link to="/products/" className={btn("primary", "md", "mt-8")}>
+        <Link to="/products" className={btn("primary", "md", "mt-8")}>
           Back to catalogue
         </Link>
       </Container>
@@ -57,7 +57,7 @@ function ProductDetail() {
       <Section className="pb-16 pt-12">
         <Container>
           <Link
-            to="/products/"
+            to="/products"
             className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
           >
             <ArrowLeft className="h-3.5 w-3.5" /> Back to catalogue

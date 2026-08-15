@@ -129,7 +129,7 @@ function HomePage() {
               title="Tile adhesive and grout products"
               description="Browse the ADEXXA range, including the expanding Extra Bond line."
             />
-            <Link to="/products/" className={btn("primary", "md")}>
+            <Link to="/products" className={btn("primary", "md")}>
               View full catalogue <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
