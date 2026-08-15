@@ -62,7 +62,7 @@
   --popover-foreground: oklch(0.16 0.01 150);
 
   /* ADEXXA deep green — primary brand colour */
-  --primary: oklch(0.38 0.12 150);
+  --primary: oklch(0.29 0.13 150);
   --primary-foreground: oklch(0.98 0.004 90);
 
   /* Clean blue — secondary brand colour */
