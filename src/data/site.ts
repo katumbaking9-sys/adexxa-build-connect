@@ -1,9 +1,7 @@
 /**
  * CENTRAL SITE CONFIGURATION
  * ---------------------------------------------------------------
- * Edit ALL company contact details in this one file.
- * Values marked `isPlaceholder: true` are NOT verified and are shown
- * on the site with a "placeholder" label until official details are supplied.
+ * Official ADEXXA contact details.
  */
 
 export const site = {
@@ -13,31 +11,50 @@ export const site = {
   shortDescription:
     "ADEXXA manufactures tile adhesive and grout products for the construction and tiling market in Uganda.",
 
-  /** Manufacturing operation — publicly reported area, not a full postal address. */
   manufacturing: {
     area: "Naggalama, along Kayunga Road",
     country: "Uganda",
-    note: "Publicly reported location of the ADEXXA tile adhesive manufacturing operation. Full physical address to be confirmed.",
+    note: "ADEXXA tile adhesive manufacturing operation.",
   },
 
   contact: {
-    /** REPLACE with the official WhatsApp number in international format, e.g. "256700000000" */
-    whatsapp: { value: "256700000000", label: "WhatsApp number to be confirmed", isPlaceholder: true },
-    /** REPLACE with the official phone number */
-    phone: { value: "+256 700 000 000", label: "Phone number to be confirmed", isPlaceholder: true },
-    /** REPLACE with the official email address */
-    email: { value: "info@example.com", label: "Email address to be confirmed", isPlaceholder: true },
-    /** REPLACE with the official location / directions text */
+    whatsapp: {
+      value: "256703839388",
+      label: "+256 703 839388",
+      isPlaceholder: false,
+    },
+
+    phone: {
+      value: "+256 703 839248",
+      label: "+256 703 839248",
+      isPlaceholder: false,
+    },
+
+    factory: {
+      value: "+256 742 364493",
+      label: "+256 742 364493",
+      isPlaceholder: false,
+    },
+
+    email: {
+      value: "Adexxainternationaltd@gmail.com",
+      label: "Adexxainternationaltd@gmail.com",
+      isPlaceholder: false,
+    },
+
     location: {
       value: "Naggalama, along Kayunga Road, Uganda",
-      label: "Full physical address to be confirmed",
+      label: "Naggalama, along Kayunga Road, Uganda",
+      isPlaceholder: false,
+    },
+
+    hours: {
+      value: "Working hours to be confirmed",
+      label: "Working hours to be confirmed",
       isPlaceholder: true,
     },
-    /** REPLACE with the official working hours */
-    hours: { value: "Working hours to be confirmed", label: "", isPlaceholder: true },
   },
 
-  /** Social profiles — add official URLs here; empty url renders as a placeholder. */
   socials: [
     { name: "Facebook", url: "" },
     { name: "Instagram", url: "" },
