@@ -1,56 +1,60 @@
 import { Mail, MapPin, MessageCircle, Phone, Clock } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { site, whatsappLink } from "@/data/site";
+import { Container } from "@/components/Section";
+import { whatsappLink } from "@/data/site";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-ink text-ink-foreground">
-      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+    <footer className="border-t border-border bg-card">
+      <Container className="py-12">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          {/* Company */}
+
+          {/* Brand */}
           <div>
-            <h2 className="font-display text-xl font-semibold">
-              {site.name}
-            </h2>
+            <Link
+              to="/"
+              className="font-display text-2xl font-bold tracking-tight"
+            >
+              ADEXXA
+            </Link>
 
-            <p className="mt-3 max-w-sm text-sm leading-relaxed text-ink-muted">
-              {site.shortDescription}
-            </p>
-
-            <p className="mt-4 text-sm font-medium">
-              {site.tagline}
+            <p className="mt-4 max-w-xs text-sm leading-6 text-muted-foreground">
+              Quality tile adhesive, grout and Extra Bond solutions
+              for tile installation projects in Uganda.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold">Quick Links</h3>
+            <h2 className="font-display text-base font-semibold">
+              Quick links
+            </h2>
 
-            <nav className="mt-4 flex flex-col gap-3 text-sm text-ink-muted">
+            <nav className="mt-4 flex flex-col gap-3 text-sm">
               <Link
                 to="/"
-                className="transition-colors hover:text-accent"
+                className="text-muted-foreground transition-colors hover:text-accent"
               >
                 Home
               </Link>
 
               <Link
                 to="/products"
-                className="transition-colors hover:text-accent"
+                className="text-muted-foreground transition-colors hover:text-accent"
               >
                 Products
               </Link>
 
               <Link
                 to="/about"
-                className="transition-colors hover:text-accent"
+                className="text-muted-foreground transition-colors hover:text-accent"
               >
                 About ADEXXA
               </Link>
 
               <Link
                 to="/contact"
-                className="transition-colors hover:text-accent"
+                className="text-muted-foreground transition-colors hover:text-accent"
               >
                 Contact
               </Link>
@@ -59,14 +63,17 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold">Contact</h3>
+            <h2 className="font-display text-base font-semibold">
+              Contact
+            </h2>
 
-            <div className="mt-4 space-y-4 text-sm text-ink-muted">
+            <div className="mt-4 space-y-4 text-sm">
+
               <a
                 href={whatsappLink()}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="flex items-start gap-3 transition-colors hover:text-accent"
+                className="flex items-start gap-3 text-muted-foreground transition-colors hover:text-accent"
               >
                 <MessageCircle className="mt-0.5 h-4 w-4 shrink-0" />
                 <span>+256 703 839388</span>
@@ -74,81 +81,76 @@ export function Footer() {
 
               <a
                 href="tel:+256703839388"
-                className="flex items-start gap-3 transition-colors hover:text-accent"
+                className="flex items-start gap-3 text-muted-foreground transition-colors hover:text-accent"
               >
                 <Phone className="mt-0.5 h-4 w-4 shrink-0" />
-                <span>Office: +256 703 839388</span>
+                <span>+256 703 839388</span>
               </a>
 
               <a
                 href="tel:+256703839248"
-                className="flex items-start gap-3 transition-colors hover:text-accent"
+                className="flex items-start gap-3 text-muted-foreground transition-colors hover:text-accent"
               >
                 <Phone className="mt-0.5 h-4 w-4 shrink-0" />
-                <span>Factory: +256 703 839248</span>
+                <span>+256 703 839248</span>
               </a>
 
               <a
                 href="mailto:Adexxainternationaltd@gmail.com"
-                className="flex items-start gap-3 break-all transition-colors hover:text-accent"
+                className="flex items-start gap-3 text-muted-foreground transition-colors hover:text-accent"
               >
                 <Mail className="mt-0.5 h-4 w-4 shrink-0" />
-                <span>Adexxainternationaltd@gmail.com</span>
+                <span className="break-all">
+                  Adexxainternationaltd@gmail.com
+                </span>
               </a>
+
             </div>
           </div>
 
           {/* Location & Hours */}
           <div>
-            <h3 className="font-semibold">Visit ADEXXA</h3>
+            <h2 className="font-display text-base font-semibold">
+              Visit ADEXXA
+            </h2>
 
-            <div className="mt-4 space-y-4 text-sm text-ink-muted">
-              <div className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
+            <div className="mt-4 space-y-4 text-sm">
+
+              <div className="flex items-start gap-3 text-muted-foreground">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <span>
-                  Naggalama, along Kayunga Road,
-                  <br />
-                  Uganda
+                  Naggalama, along Kayunga Road, Uganda
                 </span>
               </div>
 
-              <div className="flex items-start gap-3">
-                <Clock className="mt-0.5 h-4 w-4 shrink-0" />
+              <div className="flex items-start gap-3 text-muted-foreground">
+                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <span>
                   Monday – Saturday
                   <br />
                   8:00 AM – 5:00 PM
                 </span>
               </div>
-            </div>
 
-            <a
-              href={whatsappLink(
-                "Hello ADEXXA, I would like to make an enquiry."
-              )}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="mt-6 inline-flex items-center gap-2 border border-accent bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90"
-            >
-              <MessageCircle className="h-4 w-4" />
-              Chat on WhatsApp
-            </a>
+            </div>
           </div>
+
         </div>
 
         {/* Bottom */}
         <div className="mt-10 border-t border-border pt-6">
-          <div className="flex flex-col gap-3 text-xs text-ink-muted sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-3 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
             <p>
-              © {new Date().getFullYear()} {site.name}. All rights reserved.
+              © {new Date().getFullYear()} ADEXXA International Ltd.
+              All rights reserved.
             </p>
 
             <p>
-              {site.legalAssociation}
+              Tile Adhesive • Grout • Extra Bond
             </p>
           </div>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }
