@@ -184,6 +184,13 @@
   animation-delay: 1s;
 }
 
+@utility reveal-delay-5 {
+  animation-delay: 1.25s;
+}
+
+@utility reveal-delay-6 {
+  animation-delay: 1.5s;
+}
 @keyframes reveal-up {
   from {
     opacity: 0;
