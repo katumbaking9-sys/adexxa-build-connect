@@ -28,7 +28,7 @@ export function Hero() {
             contractors, fundis, hardware dealers and developers across Uganda.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Link to="/products" className={btn("accent", "lg")}>
+            <Link to="/products/" className={btn("accent", "lg")}>
               Explore Products <ArrowRight className="h-4 w-4" />
             </Link>
             <Link to="/contact" className={btn("onDark", "lg")}>

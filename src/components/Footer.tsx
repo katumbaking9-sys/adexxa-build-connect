@@ -24,7 +24,7 @@ export function Footer() {
             {categories.map((c) => (
               <li key={c.id}>
                 <Link
-                  to="/products"
+                  to="/products/"
                   search={{ category: c.id }}
                   className="text-ink-muted transition-colors hover:text-ink-foreground"
                 >
@@ -33,7 +33,7 @@ export function Footer() {
               </li>
             ))}
             <li>
-              <Link to="/products" className="text-ink-muted transition-colors hover:text-ink-foreground">
+              <Link to="/products/" className="text-ink-muted transition-colors hover:text-ink-foreground">
                 Full catalogue
               </Link>
             </li>
