@@ -19,7 +19,7 @@ export function Hero() {
 
       <Container className="relative py-28 sm:py-36 lg:py-44">
         <div className="max-w-3xl reveal">
-          <p className="eyebrow text-accent">Manufactured in Uganda</p>
+          <p className="eyebrow text-red-accent">Manufactured in Uganda</p>
           <h1 className="mt-5 text-4xl leading-[1.05] text-ink-foreground sm:text-6xl lg:text-7xl">
             {site.tagline}
           </h1>
