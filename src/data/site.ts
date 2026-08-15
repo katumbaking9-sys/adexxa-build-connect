@@ -1,7 +1,7 @@
 /**
  * CENTRAL SITE CONFIGURATION
  * ---------------------------------------------------------------
- * Official ADEXXA contact details.
+ * Official ADEXXA contact information.
  */
 
 export const site = {
@@ -25,14 +25,14 @@ export const site = {
     },
 
     phone: {
-      value: "+256 703 839248",
-      label: "+256 703 839248",
+      value: "+256 703 839388",
+      label: "+256 703 839388",
       isPlaceholder: false,
     },
 
-    factory: {
-      value: "+256 742 364493",
-      label: "+256 742 364493",
+    factoryPhone: {
+      value: "+256 703 839248",
+      label: "+256 703 839248",
       isPlaceholder: false,
     },
 
@@ -65,5 +65,8 @@ export const site = {
 
 export function whatsappLink(message?: string) {
   const base = `https://wa.me/${site.contact.whatsapp.value}`;
-  return message ? `${base}?text=${encodeURIComponent(message)}` : base;
+
+  return message
+    ? `${base}?text=${encodeURIComponent(message)}`
+    : base;
 }
