@@ -28,6 +28,7 @@ export function Section({
 }
 
 export function SectionHeading({
+  export function SectionHeading({
   eyebrow,
   title,
   description,
@@ -43,17 +44,19 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    return (
-  <div
-    className={cn(
-      "max-w-2xl reveal",
-      align === "center" && "mx-auto text-center",
-      className,
-    )}
-  >
+    <div
+      className={cn(
+        "max-w-2xl reveal",
+        align === "center" && "mx-auto text-center",
+        className,
+      )}
+    >
       {eyebrow ? (
-        <p className={cn("eyebrow", tone === "ink" ? "text-accent" : "text-accent-foreground/80")}>{eyebrow}</p>
+        <p className={cn("eyebrow", tone === "ink" ? "text-accent" : "text-accent-foreground/80")}>
+          {eyebrow}
+        </p>
       ) : null}
+
       <h2
         className={cn(
           "mt-3 text-3xl sm:text-4xl",
@@ -62,8 +65,14 @@ export function SectionHeading({
       >
         {title}
       </h2>
+
       {description ? (
-        <p className={cn("mt-4 text-base leading-relaxed", tone === "ink" ? "text-ink-muted" : "text-muted-foreground")}>
+        <p
+          className={cn(
+            "mt-4 text-base leading-relaxed",
+            tone === "ink" ? "text-ink-muted" : "text-muted-foreground",
+          )}
+        >
           {description}
         </p>
       ) : null}
