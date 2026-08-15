@@ -1,7 +1,17 @@
 import { cn } from "@/lib/utils";
 
-export function Container({ className, children }: { className?: string; children: React.ReactNode }) {
-  return <div className={cn("mx-auto w-full max-w-7xl px-5 sm:px-8", className)}>{children}</div>;
+export function Container({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className={cn("mx-auto w-full max-w-7xl px-5 sm:px-8", className)}>
+      {children}
+    </div>
+  );
 }
 
 export function Section({
@@ -16,7 +26,7 @@ export function Section({
   return (
     <section
       className={cn(
-        "py-20 sm:py-28",
+        "reveal py-20 sm:py-28",
         tone === "muted" && "bg-secondary",
         tone === "ink" && "bg-ink text-ink-foreground",
         className,
@@ -28,7 +38,6 @@ export function Section({
 }
 
 export function SectionHeading({
-  export function SectionHeading({
   eyebrow,
   title,
   description,
@@ -46,13 +55,20 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "max-w-2xl reveal",
+        "max-w-2xl",
         align === "center" && "mx-auto text-center",
         className,
       )}
     >
       {eyebrow ? (
-        <p className={cn("eyebrow", tone === "ink" ? "text-accent" : "text-accent-foreground/80")}>
+        <p
+          className={cn(
+            "eyebrow",
+            tone === "ink"
+              ? "text-accent"
+              : "text-accent-foreground/80",
+          )}
+        >
           {eyebrow}
         </p>
       ) : null}
@@ -70,7 +86,9 @@ export function SectionHeading({
         <p
           className={cn(
             "mt-4 text-base leading-relaxed",
-            tone === "ink" ? "text-ink-muted" : "text-muted-foreground",
+            tone === "ink"
+              ? "text-ink-muted"
+              : "text-muted-foreground",
           )}
         >
           {description}
