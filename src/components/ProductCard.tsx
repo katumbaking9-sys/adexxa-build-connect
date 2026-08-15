@@ -4,18 +4,9 @@ import { PLACEHOLDER, categoryName, type Product } from "@/data/products";
 import { PlaceholderValue } from "@/components/Placeholder";
 import { btn } from "@/lib/ui";
 
-export function ProductCard({
-  product,
-  delay = 0,
-}: {
-  product: Product;
-  delay?: number;
-}) {
+export function ProductCard({ product }: { product: Product }) {
   return (
-    <article
-  className="group reveal flex flex-col border border-border bg-card transition-all duration-500 ease-out hover:-translate-y-2 hover:border-accent hover:shadow-lg"
-  style={{ animationDelay: `${delay}s` }}
->
+    <article className="reveal group flex flex-col border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-accent">
       <div className="relative overflow-hidden bg-concrete">
         <img
           src={product.image}
@@ -23,7 +14,7 @@ export function ProductCard({
           loading="lazy"
           width={1024}
           height={1024}
-          className="aspect-square w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+          className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
 
         {product.imageIsPlaceholder ? (
@@ -38,7 +29,7 @@ export function ProductCard({
           {categoryName(product.category)}
         </p>
 
-        <h3 className="mt-2 font-display text-lg leading-snug text-foreground transition-colors duration-300 group-hover:text-accent">
+        <h3 className="mt-2 font-display text-lg leading-snug text-foreground">
           {product.name}
         </h3>
 
@@ -67,7 +58,7 @@ export function ProductCard({
             {product.applications.slice(0, 2).map((a) => (
               <li key={a} className="flex gap-2">
                 <span
-                  className="mt-1.5 h-1 w-1 shrink-0 bg-accent transition-transform duration-300 group-hover:scale-150"
+                  className="mt-1.5 h-1 w-1 shrink-0 bg-accent"
                   aria-hidden="true"
                 />
                 {a}
@@ -83,7 +74,7 @@ export function ProductCard({
             className={btn("primary", "sm", "flex-1")}
           >
             View Product
-            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+            <ArrowRight className="h-3.5 w-3.5" />
           </Link>
 
           <Link
@@ -98,4 +89,3 @@ export function ProductCard({
     </article>
   );
 }
-
