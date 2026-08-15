@@ -1,137 +1,246 @@
-import { Link } from "@tanstack/react-router";
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
-import { Logo } from "@/components/Logo";
-import { Container } from "@/components/Section";
-import { PlaceholderValue } from "@/components/Placeholder";
+import { createFileRoute } from "@tanstack/react-router";
+import { Mail, MapPin, MessageCircle, Phone, Clock } from "lucide-react";
+import { Container, Section, SectionHeading } from "@/components/Section";
+import { ContactForm } from "@/components/ContactForm";
 import { site, whatsappLink } from "@/data/site";
-import { categories } from "@/data/products";
+import { btn } from "@/lib/ui";
 
-export function Footer() {
-  const year = new Date().getFullYear();
+type ContactSearch = {
+  product?: string | undefined;
+};
+
+export const Route = createFileRoute("/contact")({
+  validateSearch: (search: Record<string, unknown>): ContactSearch => {
+    const p = search["product"];
+    return typeof p === "string" ? { product: p } : {};
+  },
+
+  head: () => ({
+    meta: [
+      {
+        title: "Contact ADEXXA — Tile Adhesive & Grout Enquiries Uganda",
+      },
+      {
+        name: "description",
+        content:
+          "Send an enquiry to ADEXXA about tile adhesive, grout or the Extra Bond range. Contact details for the Ugandan manufacturer of tile installation materials.",
+      },
+      {
+        property: "og:title",
+        content: "Contact ADEXXA — Tile Adhesive & Grout Enquiries Uganda",
+      },
+      {
+        property: "og:description",
+        content:
+          "Enquire about ADEXXA tile adhesive and grout products in Uganda.",
+      },
+      {
+        property: "og:type",
+        content: "website",
+      },
+      {
+        property: "og:url",
+        content: "/contact",
+      },
+    ],
+
+    links: [
+      {
+        rel: "canonical",
+        href: "/contact",
+      },
+    ],
+  }),
+
+  component: ContactPage,
+});
+
+function ContactPage() {
+  const { product } = Route.useSearch();
 
   return (
-    <footer className="border-t border-ink-border bg-ink text-ink-foreground">
-      <Container className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
-        <div>
-          <Logo tone="light" />
-          <p className="mt-5 max-w-xs text-sm leading-relaxed text-ink-muted">{site.shortDescription}</p>
-          <p className="mt-4 text-xs text-ink-muted">Associated with {site.legalAssociation}.</p>
-        </div>
-
-        <div>
-          <h3 className="eyebrow text-accent">Products</h3>
-          <ul className="mt-5 space-y-3 text-sm">
-            {categories.map((c) => (
-              <li key={c.id}>
-                <Link
-                  to="/products"
-                  search={{ category: c.id }}
-                  className="text-ink-muted transition-colors hover:text-ink-foreground"
-                >
-                  {c.name}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <Link to="/products" className="text-ink-muted transition-colors hover:text-ink-foreground">
-                Full catalogue
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="eyebrow text-accent">Company</h3>
-          <ul className="mt-5 space-y-3 text-sm">
-            <li>
-              <Link to="/about" className="text-ink-muted transition-colors hover:text-ink-foreground">
-                About ADEXXA
-              </Link>
-            </li>
-            <li>
-              <Link to="/applications" className="text-ink-muted transition-colors hover:text-ink-foreground">
-                Applications
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" className="text-ink-muted transition-colors hover:text-ink-foreground">
-                Contact &amp; enquiries
-              </Link>
-            </li>
-          </ul>
-
-          <h3 className="eyebrow mt-8 text-accent">Social</h3>
-          <ul className="mt-4 flex flex-wrap gap-2 text-xs">
-            {site.socials.map((s) => (
-              <li key={s.name}>
-                {s.url ? (
-                  <a
-                    href={s.url}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="border border-ink-border px-2.5 py-1 text-ink-muted transition-colors hover:text-ink-foreground"
-                  >
-                    {s.name}
-                  </a>
-                ) : (
-                  <span className="border border-dashed border-ink-border px-2.5 py-1 text-ink-muted">
-                    {s.name} — link pending
-                  </span>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="eyebrow text-accent">Contact</h3>
-          <ul className="mt-5 space-y-4 text-sm text-ink-muted">
-            <li className="flex items-start gap-3">
-              <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
-              <span>
-                <a href={whatsappLink()} className="hover:text-ink-foreground">
-                  WhatsApp
-                </a>
-                <br />
-                <PlaceholderValue label="Official number pending" className="mt-1.5" />
-              </span>
-            </li>
-            <li className="flex items-start gap-3">
-              <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
-              <span>
-                Phone
-                <br />
-                <PlaceholderValue label="Official number pending" className="mt-1.5" />
-              </span>
-            </li>
-            <li className="flex items-start gap-3">
-              <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
-              <span>
-                Email
-                <br />
-                <PlaceholderValue label="Official email pending" className="mt-1.5" />
-              </span>
-            </li>
-            <li className="flex items-start gap-3">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
-              <span>
-                {site.manufacturing.area}, {site.manufacturing.country}
-                <br />
-                <PlaceholderValue label="Full address pending" className="mt-1.5" />
-              </span>
-            </li>
-          </ul>
-        </div>
-      </Container>
-
-      <div className="border-t border-ink-border">
-        <Container className="flex flex-col gap-2 py-6 text-xs text-ink-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {year} ADEXXA. All rights reserved.
-          </p>
-          <p>Tile adhesive and grout products manufactured in Uganda.</p>
+    <>
+      <Section className="border-b border-border pb-14 pt-16 sm:pt-20">
+        <Container>
+          <SectionHeading
+            eyebrow="Contact"
+            title="Enquire about ADEXXA products"
+            description="Tell us about your project and the products you are interested in. Contact ADEXXA directly using the official contact details below."
+          />
         </Container>
-      </div>
-    </footer>
+      </Section>
+
+      <Section>
+        <Container className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+          <div>
+            <h2 className="accent-rule font-display text-2xl">
+              Send an enquiry
+            </h2>
+
+            <ContactForm
+              {...(product ? { defaultProduct: product } : {})}
+            />
+          </div>
+
+          <aside className="space-y-8">
+            <div className="border border-border bg-card p-6">
+              <h2 className="font-display text-lg">
+                Contact details
+              </h2>
+
+              <ul className="mt-5 space-y-5 text-sm">
+
+                {/* WhatsApp */}
+                <li className="flex items-start gap-3">
+                  <MessageCircle
+                    className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+                    aria-hidden="true"
+                  />
+
+                  <span>
+                    <span className="block font-semibold">
+                      WhatsApp
+                    </span>
+
+                    <a
+                      href={whatsappLink()}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="mt-1.5 block text-muted-foreground transition-colors hover:text-accent"
+                    >
+                      +256 703 839388
+                    </a>
+                  </span>
+                </li>
+
+                {/* Office */}
+                <li className="flex items-start gap-3">
+                  <Phone
+                    className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+                    aria-hidden="true"
+                  />
+
+                  <span>
+                    <span className="block font-semibold">
+                      Office
+                    </span>
+
+                    <a
+                      href="tel:+256703839388"
+                      className="mt-1.5 block text-muted-foreground transition-colors hover:text-accent"
+                    >
+                      +256 703 839388
+                    </a>
+                  </span>
+                </li>
+
+                {/* Factory */}
+                <li className="flex items-start gap-3">
+                  <Phone
+                    className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+                    aria-hidden="true"
+                  />
+
+                  <span>
+                    <span className="block font-semibold">
+                      Factory
+                    </span>
+
+                    <a
+                      href="tel:+256703839248"
+                      className="mt-1.5 block text-muted-foreground transition-colors hover:text-accent"
+                    >
+                      +256 703 839248
+                    </a>
+                  </span>
+                </li>
+
+                {/* Email */}
+                <li className="flex items-start gap-3">
+                  <Mail
+                    className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+                    aria-hidden="true"
+                  />
+
+                  <span>
+                    <span className="block font-semibold">
+                      Email
+                    </span>
+
+                    <a
+                      href="mailto:Adexxainternationaltd@gmail.com"
+                      className="mt-1.5 block break-all text-muted-foreground transition-colors hover:text-accent"
+                    >
+                      Adexxainternationaltd@gmail.com
+                    </a>
+                  </span>
+                </li>
+
+                {/* Location */}
+                <li className="flex items-start gap-3">
+                  <MapPin
+                    className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+                    aria-hidden="true"
+                  />
+
+                  <span>
+                    <span className="block font-semibold">
+                      Location
+                    </span>
+
+                    <span className="mt-1.5 block text-muted-foreground">
+                      Naggalama, along Kayunga Road, Uganda
+                    </span>
+                  </span>
+                </li>
+
+                {/* Working Hours */}
+                <li className="flex items-start gap-3">
+                  <Clock
+                    className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+                    aria-hidden="true"
+                  />
+
+                  <span>
+                    <span className="block font-semibold">
+                      Working hours
+                    </span>
+
+                    <span className="mt-1.5 block text-muted-foreground">
+                      8:00 AM – 5:00 PM
+                    </span>
+                  </span>
+                </li>
+
+              </ul>
+            </div>
+
+            {/* WhatsApp CTA */}
+            <div className="border border-border bg-ink p-6 text-ink-foreground">
+              <h2 className="font-display text-lg">
+                Chat on WhatsApp
+              </h2>
+
+              <p className="mt-2 text-sm text-ink-muted">
+                Quick questions about products, packaging or
+                availability? Chat directly with ADEXXA on WhatsApp.
+              </p>
+
+              <a
+                href={whatsappLink(
+                  "Hello ADEXXA, I would like to make an enquiry."
+                )}
+                target="_blank"
+                rel="noreferrer noopener"
+                className={btn("accent", "md", "mt-5 w-full")}
+              >
+                <MessageCircle className="h-4 w-4" />
+                Open WhatsApp
+              </a>
+            </div>
+          </aside>
+        </Container>
+      </Section>
+    </>
   );
 }
