@@ -4,9 +4,18 @@ import { PLACEHOLDER, categoryName, type Product } from "@/data/products";
 import { PlaceholderValue } from "@/components/Placeholder";
 import { btn } from "@/lib/ui";
 
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({
+  product,
+  delay = 0,
+}: {
+  product: Product;
+  delay?: number;
+}) {
   return (
-    <article className="group reveal flex flex-col border border-border bg-card transition-all duration-500 ease-out hover:-translate-y-2 hover:border-accent hover:shadow-lg">
+    <article
+  className="group reveal flex flex-col border border-border bg-card transition-all duration-500 ease-out hover:-translate-y-2 hover:border-accent hover:shadow-lg"
+  style={{ animationDelay: `${delay}s` }}
+>
       <div className="relative overflow-hidden bg-concrete">
         <img
           src={product.image}
