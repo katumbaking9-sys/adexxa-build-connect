@@ -8,13 +8,13 @@ import { PlaceholderBlock } from "@/components/Placeholder";
 import { PLACEHOLDER, categories, products, type CategoryId } from "@/data/products";
 import { cn } from "@/lib/utils";
 
-type ProductSearch = { category?: CategoryId | "all" };
+type ProductSearch = { category?: CategoryId | "all" | undefined };
 
 export const Route = createFileRoute("/products/")({
   validateSearch: (search: Record<string, unknown>): ProductSearch => {
-    const c = search.category;
-    const valid = ["all", ...categories.map((x) => x.id)];
-    return { category: typeof c === "string" && valid.includes(c) ? (c as CategoryId | "all") : undefined };
+    const c = search["category"];
+    const valid: string[] = ["all", ...categories.map((x) => x.id)];
+    return typeof c === "string" && valid.includes(c) ? { category: c as CategoryId | "all" } : {};
   },
   head: () => ({
     meta: [
@@ -46,7 +46,7 @@ const chip = (active: boolean) =>
   );
 
 function ProductsPage() {
-  const navigate = useNavigate({ from: "/products" });
+  const navigate = useNavigate({ from: "/products/" });
   const { category = "all" } = Route.useSearch();
   const [query, setQuery] = useState("");
   const [packaging, setPackaging] = useState("all");
