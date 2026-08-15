@@ -56,10 +56,22 @@ export const site = {
   },
 
   socials: [
-    { name: "Facebook", url: "" },
-    { name: "Instagram", url: "" },
-    { name: "LinkedIn", url: "" },
-    { name: "X", url: "" },
+    {
+      name: "Facebook",
+      url: "",
+    },
+    {
+      name: "Instagram",
+      url: "",
+    },
+    {
+      name: "LinkedIn",
+      url: "",
+    },
+    {
+      name: "X",
+      url: "",
+    },
   ],
 } as const;
 
