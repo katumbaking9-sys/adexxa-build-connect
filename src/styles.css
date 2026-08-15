@@ -165,29 +165,29 @@
   }
 }
 @utility reveal {
-  animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: reveal-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @utility reveal-delay-1 {
-  animation-delay: 0.1s;
+  animation-delay: 0.25s;
 }
 
 @utility reveal-delay-2 {
-  animation-delay: 0.2s;
+  animation-delay: 0.5s;
 }
 
 @utility reveal-delay-3 {
-  animation-delay: 0.3s;
+  animation-delay: 0.75s;
 }
 
 @utility reveal-delay-4 {
-  animation-delay: 0.4s;
+  animation-delay: 1s;
 }
 
 @keyframes reveal-up {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(32px);
   }
 
   to {
