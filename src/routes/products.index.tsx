@@ -4,7 +4,6 @@ import { Search } from "lucide-react";
 import { Container, Section, SectionHeading } from "@/components/Section";
 import { ProductCard } from "@/components/ProductCard";
 import { CTASection } from "@/components/CTASection";
-import { PlaceholderBlock } from "@/components/Placeholder";
 import { PLACEHOLDER, categories, products, type CategoryId } from "@/data/products";
 import { cn } from "@/lib/utils";
 
