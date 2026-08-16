@@ -109,7 +109,7 @@ export function ProductCard({
             className={btn("primary", "sm", "flex-1")}
           >
             <MessageCircle className="h-3.5 w-3.5" />
-            Enquire on WhatsApp
+            Enquire
           </a>
 
           <Link
