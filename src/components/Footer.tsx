@@ -3,11 +3,73 @@ import { Link } from "@tanstack/react-router";
 import { Container } from "@/components/Section";
 import { whatsappLink } from "@/data/site";
 
+function AILLogo() {
+  return (
+    <div className="flex flex-col items-start">
+      <svg
+        viewBox="0 0 420 190"
+        className="h-20 w-auto"
+        role="img"
+        aria-label="AIL"
+      >
+        {/* A */}
+        <path
+          d="M38 150 L93 25 L148 150"
+          fill="none"
+          stroke="#171515"
+          strokeWidth="28"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M60 105 L126 105"
+          fill="none"
+          stroke="#171515"
+          strokeWidth="24"
+          strokeLinecap="round"
+        />
+
+        {/* Red dot */}
+        <circle cx="93" cy="91" r="16" fill="#ed1c24" />
+
+        {/* I */}
+        <path
+          d="M184 28 L184 150"
+          fill="none"
+          stroke="#3656ad"
+          strokeWidth="32"
+          strokeLinecap="round"
+        />
+
+        {/* L */}
+        <path
+          d="M245 28 L245 150 L367 150"
+          fill="none"
+          stroke="#171515"
+          strokeWidth="32"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+
+      <p className="mt-2 text-xs text-muted-foreground">
+        Packed &amp; Manufactured by:
+      </p>
+
+      <p className="text-sm font-bold text-foreground">
+        ADEXXA INTERNATIONAL LTD.
+      </p>
+    </div>
+  );
+}
+
 export const Footer = () => {
   return (
     <footer className="border-t border-border bg-card">
       <Container className="py-12">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+          
+          {/* Brand + AIL Manufacturer */}
           <div>
             <Link
               to="/"
@@ -20,15 +82,23 @@ export const Footer = () => {
               Quality tile adhesive, grout and Extra Bond solutions for tile
               installation projects in Uganda.
             </p>
+
+            <div className="mt-8">
+              <AILLogo />
+            </div>
           </div>
 
+          {/* Quick Links */}
           <div>
             <h2 className="font-display text-base font-semibold">
               Quick links
             </h2>
 
             <nav className="mt-4 flex flex-col gap-3 text-sm">
-              <Link to="/" className="text-muted-foreground hover:text-accent">
+              <Link
+                to="/"
+                className="text-muted-foreground hover:text-accent"
+              >
                 Home
               </Link>
 
@@ -55,6 +125,7 @@ export const Footer = () => {
             </nav>
           </div>
 
+          {/* Contact */}
           <div>
             <h2 className="font-display text-base font-semibold">
               Contact
@@ -99,6 +170,7 @@ export const Footer = () => {
             </div>
           </div>
 
+          {/* Visit */}
           <div>
             <h2 className="font-display text-base font-semibold">
               Visit ADEXXA
@@ -122,6 +194,7 @@ export const Footer = () => {
           </div>
         </div>
 
+        {/* Bottom copyright */}
         <div className="mt-10 border-t border-border pt-6">
           <div className="flex flex-col gap-3 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
             <p>
