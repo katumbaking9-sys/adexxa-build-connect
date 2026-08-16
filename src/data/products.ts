@@ -1,30 +1,30 @@
 /**
  * PRODUCT CATALOGUE
  * ---------------------------------------------------------------
- * Add or edit products here — the catalogue, filters, product detail
- * pages and the enquiry dropdown all read from this file.
- *
- * Rule: only enter information that is verified. For anything unknown,
- * leave the field out or use a PLACEHOLDER string — the UI renders
- * a clearly labelled placeholder instead of inventing content.
+ * Content here follows the official ADEXXA flyer. Only information
+ * present on the flyer is stated. Anything unknown uses PLACEHOLDER,
+ * which the UI renders as a clearly labelled placeholder.
  */
 
-import adhesiveImg from "@/assets/product-adhesive-placeholder.jpg";
-import groutWhiteImg from "@/assets/product-grout-white-placeholder.jpg";
-import groutGreyImg from "@/assets/product-grout-grey-placeholder.jpg";
-import genericImg from "@/assets/product-placeholder.jpg";
+import extraBondImg from "@/assets/product-extra-bond-red-20kg.jpg";
+import tileAdhesiveImg from "@/assets/product-tile-adhesive-green-20kg.jpg";
+import tileGroutImg from "@/assets/product-tile-grout-blue.jpg";
 
 export const PLACEHOLDER = "__PLACEHOLDER__";
 
-export type CategoryId = "tile-adhesives" | "grout" | "extra-bond";
+export type CategoryId = "extra-bond" | "tile-adhesives" | "grout";
 
 export type Product = {
   slug: string;
   name: string;
   category: CategoryId;
-  /** e.g. "20 kg bag" — use PLACEHOLDER when unknown */
+  /** e.g. "20 kg" — use PLACEHOLDER when unknown */
   packaging: string;
-  /** e.g. "Cement-based powder mortar" */
+  /** all sizes available, as printed on the flyer */
+  sizes: string[];
+  /** packaging colour from the flyer */
+  packagingColour: string;
+  /** e.g. "Heavy duty tile adhesive" */
   type: string;
   colour?: string;
   image: string;
@@ -46,156 +46,99 @@ export const categories: {
   blurb: string;
 }[] = [
   {
+    id: "extra-bond",
+    name: "Extra Bond",
+    blurb: "The heavy-duty tile adhesive in the ADEXXA range, supplied in 20 kg red packaging.",
+  },
+  {
     id: "tile-adhesives",
-    name: "Tile Adhesives",
-    blurb: "Cement-based powder adhesives for bonding tiles and ceramic.",
+    name: "Tile Adhesive",
+    blurb: "The standard ADEXXA tile adhesive, supplied in 20 kg green packaging.",
   },
   {
     id: "grout",
-    name: "Grout",
-    blurb: "Tile joint filling products, available in white and grey.",
-  },
-  {
-    id: "extra-bond",
-    name: "Extra Bond",
-    blurb:
-      "An expanding range. Variants, packaging and technical data will be published once official product information is supplied.",
+    name: "Tile Grout",
+    blurb: "ADEXXA tile grout for filling tile joints, available in 1 kg and 5 kg blue packaging.",
   },
 ];
 
 export const products: Product[] = [
   {
+    slug: "adexxa-extra-bond-20kg",
+    name: "ADEXXA Extra Bond",
+    category: "extra-bond",
+    packaging: "20 kg",
+    sizes: ["20 kg"],
+    packagingColour: "Red",
+    type: "Heavy duty tile adhesive",
+    image: extraBondImg,
+    imageIsPlaceholder: true,
+    shortDescription:
+      "The heavy-duty tile adhesive in the ADEXXA range, supplied in a 20 kg red pack.",
+    overview:
+      "ADEXXA Extra Bond is presented on the official ADEXXA flyer as the heavy-duty tile adhesive in the range. It is supplied in 20 kg red packaging and is packed and manufactured by ADEXXA International Ltd.",
+    keyFeatures: ["Heavy duty tile adhesive", "20 kg pack", "Red packaging"],
+    applications: ["Tile fixing where a heavy-duty adhesive is required"],
+    technical: [
+      { label: "Product type", value: "Heavy duty tile adhesive" },
+      { label: "Packaging", value: "20 kg" },
+      { label: "Packaging colour", value: "Red" },
+      { label: "Coverage", value: PLACEHOLDER },
+      { label: "Mixing ratio", value: PLACEHOLDER },
+      { label: "Shelf life & storage", value: PLACEHOLDER },
+    ],
+    applicationGuidance: PLACEHOLDER,
+  },
+  {
     slug: "adexxa-tile-adhesive-20kg",
     name: "ADEXXA Tile Adhesive",
     category: "tile-adhesives",
     packaging: "20 kg",
-    type: "Cement-based powder mortar",
-    image: adhesiveImg,
+    sizes: ["20 kg"],
+    packagingColour: "Green",
+    type: "Normal adhesive",
+    image: tileAdhesiveImg,
     imageIsPlaceholder: true,
     shortDescription:
-      "Cement-based, single-component powder mortar for bonding tiles and ceramic in indoor applications.",
+      "The standard ADEXXA tile adhesive for everyday tiling work, supplied in a 20 kg green pack.",
     overview:
-      "ADEXXA Tile Adhesive is publicly listed as a cement-based, single-component powder mortar used for bonding tiles and ceramic. It is described as suitable for indoor applications, on horizontal and vertical surfaces.",
-    keyFeatures: [
-      "Cement-based",
-      "Single-component",
-      "Powder mortar",
-      "For bonding tiles and ceramic",
-      "Supplied in 20 kg",
-    ],
-    applications: [
-      "Indoor applications",
-      "Horizontal and vertical surfaces",
-      "Small and medium-sized floor and wall tiles with water absorption above 3%",
-    ],
+      "ADEXXA Tile Adhesive is presented on the official ADEXXA flyer as the standard (normal) tile adhesive in the range. It is supplied in 20 kg green packaging and is packed and manufactured by ADEXXA International Ltd.",
+    keyFeatures: ["Normal adhesive", "20 kg pack", "Green packaging"],
+    applications: ["Standard tile fixing work"],
     technical: [
-      { label: "Product type", value: "Cement-based, single-component powder mortar" },
+      { label: "Product type", value: "Normal tile adhesive" },
       { label: "Packaging", value: "20 kg" },
-      { label: "Application area", value: "Indoor" },
-      { label: "Surfaces", value: "Horizontal and vertical" },
-      { label: "Tile suitability", value: "Small and medium-sized floor and wall tiles, water absorption above 3%" },
+      { label: "Packaging colour", value: "Green" },
+      { label: "Coverage", value: PLACEHOLDER },
       { label: "Mixing ratio", value: PLACEHOLDER },
-      { label: "Coverage", value: PLACEHOLDER },
-      { label: "Pot life / open time", value: PLACEHOLDER },
       { label: "Shelf life & storage", value: PLACEHOLDER },
     ],
     applicationGuidance: PLACEHOLDER,
   },
   {
-    slug: "adexxa-grout-white-5kg",
-    name: "ADEXXA Grout — White",
+    slug: "adexxa-tile-grout",
+    name: "ADEXXA Tile Grout",
     category: "grout",
-    packaging: "5 kg",
+    packaging: "1 kg & 5 kg",
+    sizes: ["1 kg", "5 kg"],
+    packagingColour: "Blue",
     type: "Tile grout",
-    colour: "White",
-    image: groutWhiteImg,
+    image: tileGroutImg,
     imageIsPlaceholder: true,
-    shortDescription: "ADEXXA tile grout in white, listed by Ugandan retailers in a 5 kg pack.",
+    shortDescription:
+      "ADEXXA tile grout for filling tile joints, available in 1 kg and 5 kg blue packs.",
     overview:
-      "ADEXXA Grout is part of the ADEXXA product catalogue for tile installation. Public Ugandan retail listings show it in white, 5 kg.",
-    keyFeatures: ["Colour: White", "Supplied in 5 kg", "Part of the ADEXXA tile installation range"],
+      "ADEXXA Tile Grout is presented on the official ADEXXA flyer as the grout product in the range. It is available in 1 kg and 5 kg blue packaging and is packed and manufactured by ADEXXA International Ltd.",
+    keyFeatures: ["Tile grout", "Available in 1 kg and 5 kg", "Blue packaging"],
     applications: ["Filling tile joints in tiling projects"],
-    colours: ["White", "Grey"],
     technical: [
-      { label: "Packaging", value: "5 kg" },
-      { label: "Colour", value: "White" },
-      { label: "Composition", value: PLACEHOLDER },
+      { label: "Product type", value: "Tile grout" },
+      { label: "Packaging", value: "1 kg and 5 kg" },
+      { label: "Packaging colour", value: "Blue" },
+      { label: "Colours available", value: PLACEHOLDER },
       { label: "Joint width range", value: PLACEHOLDER },
       { label: "Coverage", value: PLACEHOLDER },
       { label: "Shelf life & storage", value: PLACEHOLDER },
-    ],
-    applicationGuidance: PLACEHOLDER,
-  },
-  {
-    slug: "adexxa-grout-grey-5kg",
-    name: "ADEXXA Grout — Grey",
-    category: "grout",
-    packaging: "5 kg",
-    type: "Tile grout",
-    colour: "Grey",
-    image: groutGreyImg,
-    imageIsPlaceholder: true,
-    shortDescription: "ADEXXA tile grout in grey, listed by Ugandan retailers in a 5 kg pack.",
-    overview:
-      "ADEXXA Grout is part of the ADEXXA product catalogue for tile installation. Public Ugandan retail listings show it in grey, 5 kg.",
-    keyFeatures: ["Colour: Grey", "Supplied in 5 kg", "Part of the ADEXXA tile installation range"],
-    applications: ["Filling tile joints in tiling projects"],
-    colours: ["White", "Grey"],
-    technical: [
-      { label: "Packaging", value: "5 kg" },
-      { label: "Colour", value: "Grey" },
-      { label: "Composition", value: PLACEHOLDER },
-      { label: "Joint width range", value: PLACEHOLDER },
-      { label: "Coverage", value: PLACEHOLDER },
-      { label: "Shelf life & storage", value: PLACEHOLDER },
-    ],
-    applicationGuidance: PLACEHOLDER,
-  },
-
-  /**
-   * EXTRA BOND RANGE
-   * Duplicate the entry below for each official Extra Bond variant.
-   * Replace every PLACEHOLDER with confirmed information only.
-   */
-  {
-    slug: "extra-bond-variant-1",
-    name: "Extra Bond — Product 1 (details pending)",
-    category: "extra-bond",
-    packaging: PLACEHOLDER,
-    type: PLACEHOLDER,
-    image: genericImg,
-    imageIsPlaceholder: true,
-    shortDescription:
-      "Placeholder entry for the Extra Bond range. Official product name, packaging and specifications will be published once supplied.",
-    overview: PLACEHOLDER,
-    keyFeatures: [],
-    applications: [],
-    technical: [
-      { label: "Product type", value: PLACEHOLDER },
-      { label: "Packaging", value: PLACEHOLDER },
-      { label: "Colours", value: PLACEHOLDER },
-      { label: "Application area", value: PLACEHOLDER },
-    ],
-    applicationGuidance: PLACEHOLDER,
-  },
-  {
-    slug: "extra-bond-variant-2",
-    name: "Extra Bond — Product 2 (details pending)",
-    category: "extra-bond",
-    packaging: PLACEHOLDER,
-    type: PLACEHOLDER,
-    image: genericImg,
-    imageIsPlaceholder: true,
-    shortDescription:
-      "Placeholder entry for the Extra Bond range. Official product name, packaging and specifications will be published once supplied.",
-    overview: PLACEHOLDER,
-    keyFeatures: [],
-    applications: [],
-    technical: [
-      { label: "Product type", value: PLACEHOLDER },
-      { label: "Packaging", value: PLACEHOLDER },
-      { label: "Colours", value: PLACEHOLDER },
-      { label: "Application area", value: PLACEHOLDER },
     ],
     applicationGuidance: PLACEHOLDER,
   },
@@ -211,9 +154,9 @@ export function categoryName(id: CategoryId) {
 
 /** Options shown in the enquiry form dropdown — easy to extend. */
 export const enquiryOptions = [
-  "ADEXXA Tile Adhesive",
-  "ADEXXA Grout — White",
-  "ADEXXA Grout — Grey",
-  "Extra Bond",
+  "ADEXXA Extra Bond — 20 kg",
+  "ADEXXA Tile Adhesive — 20 kg",
+  "ADEXXA Tile Grout — 1 kg",
+  "ADEXXA Tile Grout — 5 kg",
   "Other / General Enquiry",
 ];

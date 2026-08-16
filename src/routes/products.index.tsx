@@ -4,7 +4,6 @@ import { Search } from "lucide-react";
 import { Container, Section, SectionHeading } from "@/components/Section";
 import { ProductCard } from "@/components/ProductCard";
 import { CTASection } from "@/components/CTASection";
-import { PlaceholderBlock } from "@/components/Placeholder";
 import { PLACEHOLDER, categories, products, type CategoryId } from "@/data/products";
 import { cn } from "@/lib/utils";
 
@@ -57,17 +56,17 @@ function ProductsPage() {
     [],
   );
   const colourOptions = useMemo(
-    () => ["all", ...Array.from(new Set(products.map((p) => p.colour).filter(Boolean) as string[]))],
+    () => ["all", ...Array.from(new Set(products.map((p) => p.packagingColour).filter(Boolean)))],
     [],
   );
 
   const filtered = products.filter((p) => {
     if (category !== "all" && p.category !== category) return false;
     if (packaging !== "all" && p.packaging !== packaging) return false;
-    if (colour !== "all" && p.colour !== colour) return false;
+    if (colour !== "all" && p.packagingColour !== colour) return false;
     if (query.trim()) {
       const q = query.toLowerCase();
-      const haystack = [p.name, p.type, p.shortDescription, p.packaging, p.colour ?? ""].join(" ").toLowerCase();
+      const haystack = [p.name, p.type, p.shortDescription, p.packaging, p.packagingColour].join(" ").toLowerCase();
       if (!haystack.includes(q)) return false;
     }
     return true;
@@ -142,7 +141,7 @@ function ProductsPage() {
               </div>
 
               <div>
-                <p className="eyebrow text-muted-foreground">Colour</p>
+                <p className="eyebrow text-muted-foreground">Pack colour</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {colourOptions.map((c) => (
                     <button key={c} type="button" className={chip(colour === c)} onClick={() => setColour(c)}>
@@ -170,25 +169,11 @@ function ProductsPage() {
                       <span className="text-xs text-muted-foreground">{items.length} product(s)</span>
                     </div>
 
-                    {c.id === "extra-bond" ? (
-                      <div className="mt-6">
-                        <PlaceholderBlock title="Extra Bond product information pending">
-                          Product names, variants, packaging, colours and technical data will be published here once
-                          official Extra Bond product information is supplied. New variants can be added in
-                          src/data/products.ts without redesigning the catalogue.
-                        </PlaceholderBlock>
-                      </div>
-                    ) : null}
-
                     {items.length > 0 ? (
-                      <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                       {items.map((p, index) => (
-  <ProductCard
-    key={p.slug}
-    product={p}
-    delay={index * 0.15}
-  />
-))}
+                      <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                        {items.map((p, index) => (
+                          <ProductCard key={p.slug} product={p} delay={index * 90} />
+                        ))}
                       </div>
                     ) : (
                       <p className="mt-6 text-sm text-muted-foreground">No products match the current filters.</p>

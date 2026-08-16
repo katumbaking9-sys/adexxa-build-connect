@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import { PLACEHOLDER, categoryName, type Product } from "@/data/products";
 import { PlaceholderValue } from "@/components/Placeholder";
+import { whatsappLink } from "@/data/site";
 import { btn } from "@/lib/ui";
 
 export function ProductCard({
@@ -22,7 +23,7 @@ export function ProductCard({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry?.isIntersecting) {
           setVisible(true);
           observer.unobserve(element);
         }
@@ -71,18 +72,25 @@ export function ProductCard({
           {product.name}
         </h3>
 
-        <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
+        <p className="mt-1 text-sm font-medium text-foreground/80">{product.type}</p>
+
+        <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
           {product.packaging === PLACEHOLDER ? (
             <PlaceholderValue label="Packaging pending" />
           ) : (
-            <span className="border border-border bg-secondary px-2 py-0.5 font-medium text-secondary-foreground">
-              {product.packaging}
-            </span>
+            (product.sizes.length > 0 ? product.sizes : [product.packaging]).map((s) => (
+              <span
+                key={s}
+                className="border border-border bg-secondary px-2.5 py-1 font-semibold text-secondary-foreground"
+              >
+                {s}
+              </span>
+            ))
           )}
 
-          {product.colour ? (
-            <span className="border border-border bg-secondary px-2 py-0.5 font-medium text-secondary-foreground">
-              {product.colour}
+          {product.packagingColour ? (
+            <span className="border border-border px-2.5 py-1 font-medium text-muted-foreground">
+              {product.packagingColour} pack
             </span>
           ) : null}
         </div>
@@ -91,38 +99,36 @@ export function ProductCard({
           {product.shortDescription}
         </p>
 
-        {product.applications.length > 0 ? (
-          <ul className="mt-4 space-y-1.5 text-xs text-muted-foreground">
-            {product.applications.slice(0, 2).map((a) => (
-              <li key={a} className="flex gap-2">
-                <span
-                  className="mt-1.5 h-1 w-1 shrink-0 bg-accent"
-                  aria-hidden="true"
-                />
-                {a}
-              </li>
-            ))}
-          </ul>
-        ) : null}
+        <div className="mt-7 flex flex-col gap-2 sm:flex-row">
+          <a
+            href={whatsappLink(
+              `Hello ADEXXA, I would like to enquire about ${product.name} (${product.sizes.join(" / ")}).`
+            )}
+            target="_blank"
+            rel="noreferrer noopener"
+            className={btn("primary", "sm", "flex-1")}
+          >
+            <MessageCircle className="h-3.5 w-3.5" />
+            Enquire
+          </a>
 
-        <div className="mt-6 flex flex-wrap gap-2">
           <Link
             to="/products/$slug"
             params={{ slug: product.slug }}
-            className={btn("primary", "sm", "flex-1")}
+            className={btn("outline", "sm", "flex-1")}
           >
             View Product
             <ArrowRight className="h-3.5 w-3.5" />
           </Link>
-
-          <Link
-            to="/contact"
-            search={{ product: product.name }}
-            className={btn("outline", "sm", "flex-1")}
-          >
-            Enquire Now
-          </Link>
         </div>
+
+        <Link
+          to="/contact"
+          search={{ product: product.name }}
+          className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-muted-foreground underline-offset-4 hover:text-accent hover:underline"
+        >
+          Or send an enquiry form
+        </Link>
       </div>
     </article>
   );
