@@ -10,11 +10,12 @@ export function Logo({
   return (
     <div
       className={cn(
-        "inline-flex flex-col items-start translate-x-[-8px] translate-y-[8px]",
+        "inline-flex flex-col items-start -translate-x-2",
         className,
       )}
       aria-label="ADEXXA"
     >
+      {/* LOGO */}
       <div className="w-[210px] sm:w-[240px]">
         <svg
           viewBox="0 0 440 135"
@@ -70,7 +71,8 @@ export function Logo({
         </svg>
       </div>
 
-      <p className="mt-[-2px] ml-1 text-left text-[0.62rem] font-bold uppercase leading-tight tracking-[0.045em] text-foreground sm:text-[0.7rem]">
+      {/* SLOGAN */}
+      <p className="mt-[-1px] ml-1 text-left text-[0.62rem] font-bold uppercase leading-tight tracking-[0.045em] text-foreground sm:text-[0.7rem]">
         High Performance Tile Adhesive and Grout
       </p>
     </div>
