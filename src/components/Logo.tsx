@@ -10,7 +10,7 @@ export function Logo({
   return (
     <div
       className={cn(
-        "inline-flex flex-col items-start",
+        "inline-flex flex-col items-start translate-x-[-8px] translate-y-[8px]",
         className,
       )}
       aria-label="ADEXXA"
@@ -70,7 +70,7 @@ export function Logo({
         </svg>
       </div>
 
-      <p className="mt-0.5 ml-1 text-left text-[0.62rem] font-bold uppercase leading-tight tracking-[0.045em] text-foreground sm:text-[0.7rem]">
+      <p className="mt-[-2px] ml-1 text-left text-[0.62rem] font-bold uppercase leading-tight tracking-[0.045em] text-foreground sm:text-[0.7rem]">
         High Performance Tile Adhesive and Grout
       </p>
     </div>
