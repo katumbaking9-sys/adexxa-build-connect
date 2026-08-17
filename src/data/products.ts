@@ -72,7 +72,7 @@ export const products: Product[] = [
     packagingColour: "Red",
     type: "Heavy duty tile adhesive",
     image: extraBondImg,
-    imageIsPlaceholder: true,
+    imageIsPlaceholder: false,
     shortDescription:
       "The heavy-duty tile adhesive in the ADEXXA range, supplied in a 20 kg red pack.",
     overview:
@@ -98,7 +98,7 @@ export const products: Product[] = [
     packagingColour: "Green",
     type: "Normal adhesive",
     image: tileAdhesiveImg,
-    imageIsPlaceholder: true,
+    imageIsPlaceholder: false,
     shortDescription:
       "The standard ADEXXA tile adhesive for everyday tiling work, supplied in a 20 kg green pack.",
     overview:
@@ -124,7 +124,7 @@ export const products: Product[] = [
     packagingColour: "Blue",
     type: "Tile grout",
     image: tileGroutImg,
-    imageIsPlaceholder: true,
+    imageIsPlaceholder: false,
     shortDescription:
       "ADEXXA tile grout for filling tile joints, available in 1 kg and 5 kg blue packs.",
     overview:
