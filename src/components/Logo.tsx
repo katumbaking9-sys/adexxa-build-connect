@@ -10,7 +10,7 @@ export function Logo({
   return (
     <div
       className={cn(
-        "inline-flex flex-col items-start -translate-x-2",
+        "inline-flex flex-col items-start -translate-x-6",
         className,
       )}
       aria-label="ADEXXA"
