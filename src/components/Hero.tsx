@@ -8,6 +8,7 @@ import { site } from "@/data/site";
 export function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-ink">
+      {/* Hero Image */}
       <img
         src={heroImg}
         alt="Tiler spreading cement-based tile adhesive with a notched trowel before laying floor tiles"
@@ -15,45 +16,71 @@ export function Hero() {
         height={1280}
         className="absolute inset-0 h-full w-full object-cover opacity-45"
       />
-      <div className="absolute inset-0 bg-ink/70" aria-hidden="true" />
 
-      <Container className="relative py-28 sm:py-36 lg:py-44">
-       <div className="max-w-3xl">
-  <p className="eyebrow text-red-accent reveal">
-    Manufactured in Uganda
-  </p>
+      {/* Dark Overlay */}
+      <div
+        className="absolute inset-0 bg-ink/70"
+        aria-hidden="true"
+      />
 
-  <h1 className="mt-5 text-4xl leading-[1.05] text-ink-foreground sm:text-6xl lg:text-7xl reveal reveal-delay-1">
-    {site.tagline}
-  </h1>
+      {/* Main Hero Content */}
+      <Container className="relative py-24 sm:py-32 lg:py-36">
+        <div className="max-w-3xl">
+          <p className="eyebrow text-red-accent reveal">
+            Manufactured in Uganda
+          </p>
 
-  <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-muted reveal reveal-delay-2">
-    ADEXXA supplies tile adhesive and grout products for construction and tiling projects — made for
-    contractors, fundis, hardware dealers and developers across Uganda.
-  </p>
+          <h1 className="mt-5 max-w-3xl text-4xl leading-[1.02] text-ink-foreground sm:text-6xl lg:text-7xl reveal reveal-delay-1">
+            {site.tagline}
+          </h1>
 
-  <div className="mt-10 flex flex-wrap gap-3 reveal reveal-delay-3">
-    <Link to="/products" className={btn("accent", "lg")}>
-      Explore Products <ArrowRight className="h-4 w-4" />
-    </Link>
+          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ink-muted sm:text-xl reveal reveal-delay-2">
+            ADEXXA supplies tile adhesive and grout products for construction
+            and tiling projects — made for contractors, fundis, hardware
+            dealers and developers across Uganda.
+          </p>
 
-    <Link to="/contact" className={btn("onDark", "lg")}>
-      Contact ADEXXA
-    </Link>
-  </div>
-</div>
+          <div className="mt-10 flex flex-wrap gap-3 reveal reveal-delay-3">
+            <Link to="/products" className={btn("accent", "lg")}>
+              Explore Products
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+
+            <Link to="/contact" className={btn("onDark", "lg")}>
+              Contact ADEXXA
+            </Link>
+          </div>
+        </div>
       </Container>
 
+      {/* Hero Information Bar */}
       <div className="relative border-t border-ink-border">
         <Container className="grid divide-ink-border sm:grid-cols-3 sm:divide-x">
           {[
-            { k: "Product range", v: "Tile adhesive, grout & Extra Bond" },
-            { k: "Manufacturing", v: `${site.manufacturing.area}` },
-            { k: "Serving", v: "Contractors, fundis, hardware & developers" },
+            {
+              k: "Product range",
+              v: "Tile adhesive, grout & Extra Bond",
+            },
+            {
+              k: "Manufacturing",
+              v: `${site.manufacturing.area}`,
+            },
+            {
+              k: "Serving",
+              v: "Contractors, fundis, hardware & developers",
+            },
           ].map((item) => (
-            <div key={item.k} className="px-0 py-6 sm:px-8 sm:first:pl-0">
-              <p className="eyebrow text-accent">{item.k}</p>
-              <p className="mt-2 text-sm text-ink-muted">{item.v}</p>
+            <div
+              key={item.k}
+              className="px-0 py-6 sm:px-8 sm:first:pl-0"
+            >
+              <p className="eyebrow text-accent">
+                {item.k}
+              </p>
+
+              <p className="mt-2 max-w-sm text-sm leading-relaxed text-ink-muted">
+                {item.v}
+              </p>
             </div>
           ))}
         </Container>
