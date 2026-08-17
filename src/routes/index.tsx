@@ -29,7 +29,10 @@ export const Route = createFileRoute("/")({
         content:
           "ADEXXA manufactures tile adhesive and grout products in Uganda for construction and tiling projects. Explore the catalogue and send an enquiry.",
       },
-      { property: "og:title", content: "ADEXXA Uganda — Tile Adhesive & Grout Manufacturer" },
+      {
+        property: "og:title",
+        content: "ADEXXA Uganda — Tile Adhesive & Grout Manufacturer",
+      },
       {
         property: "og:description",
         content:
@@ -38,7 +41,14 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "/" },
+      {
+        rel: "icon",
+        type: "image/png",
+        href: "/adexxa-ail-favicon.png",
+      },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -61,12 +71,42 @@ export const Route = createFileRoute("/")({
 });
 
 const applications = [
-  { icon: Layers, title: "Floor tiling", description: "Tiling works on floor surfaces in new build and finishing projects." },
-  { icon: PaintRoller, title: "Wall tiling", description: "Tiling works on wall surfaces as part of interior finishing." },
-  { icon: Home, title: "Residential construction", description: "Homes and residential units where tiling forms part of the works." },
-  { icon: Building2, title: "Commercial construction", description: "Commercial buildings and fit-out projects requiring tiling." },
-  { icon: Wrench, title: "Renovation projects", description: "Refurbishment and re-tiling works on existing buildings." },
-  { icon: HardHat, title: "Tile installation projects", description: "General tile installation carried out by professional teams." },
+  {
+    icon: Layers,
+    title: "Floor tiling",
+    description:
+      "Tiling works on floor surfaces in new build and finishing projects.",
+  },
+  {
+    icon: PaintRoller,
+    title: "Wall tiling",
+    description:
+      "Tiling works on wall surfaces as part of interior finishing.",
+  },
+  {
+    icon: Home,
+    title: "Residential construction",
+    description:
+      "Homes and residential units where tiling forms part of the works.",
+  },
+  {
+    icon: Building2,
+    title: "Commercial construction",
+    description:
+      "Commercial buildings and fit-out projects requiring tiling.",
+  },
+  {
+    icon: Wrench,
+    title: "Renovation projects",
+    description:
+      "Refurbishment and re-tiling works on existing buildings.",
+  },
+  {
+    icon: HardHat,
+    title: "Tile installation projects",
+    description:
+      "General tile installation carried out by professional teams.",
+  },
 ];
 
 const customerTypes = [
@@ -104,6 +144,7 @@ function HomePage() {
               More about ADEXXA <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
+
           <div className="relative">
             <img
               src={manufacturingImg}
@@ -129,10 +170,12 @@ function HomePage() {
               title="Tile adhesive and grout products"
               description="Browse the ADEXXA range, including the expanding Extra Bond line."
             />
+
             <Link to="/products" className={btn("primary", "md")}>
               View full catalogue <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
+
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((p) => (
               <ProductCard key={p.slug} product={p} />
@@ -149,9 +192,15 @@ function HomePage() {
             title="Where ADEXXA products are used"
             description="Common tiling and construction situations where tile adhesive and grout are required."
           />
+
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {applications.map((a) => (
-              <ApplicationCard key={a.title} icon={a.icon} title={a.title} description={a.description} />
+              <ApplicationCard
+                key={a.title}
+                icon={a.icon}
+                title={a.title}
+                description={a.description}
+              />
             ))}
           </div>
         </Container>
@@ -159,25 +208,52 @@ function HomePage() {
 
       {/* Why ADEXXA */}
       <Section tone="ink" className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 hairline-grid opacity-30" aria-hidden="true" />
+        <div
+          className="pointer-events-none absolute inset-0 hairline-grid opacity-30"
+          aria-hidden="true"
+        />
+
         <Container className="relative">
           <SectionHeading
             tone="ink"
             eyebrow="Why ADEXXA"
             title="Locally manufactured materials for tiling work"
           />
+
           <div className="mt-12 grid gap-px bg-ink-border sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { t: "Locally manufactured", d: "Products are manufactured in Uganda for the local construction market." },
-              { t: "Tile adhesive and grout", d: "A focused range covering bonding and joint filling for tiling work." },
-              { t: "Construction-focused", d: "Products intended for construction and tiling projects, not general retail goods." },
-              { t: "Convenient range", d: "Adhesive in 20 kg and grout in 5 kg packs listed by Ugandan retailers." },
-              { t: "Different applications", d: "Solutions covering floor and wall tiling in indoor projects." },
-              { t: "Growing catalogue", d: "The Extra Bond range is being added as official product information is confirmed." },
+              {
+                t: "Locally manufactured",
+                d: "Products are manufactured in Uganda for the local construction market.",
+              },
+              {
+                t: "Tile adhesive and grout",
+                d: "A focused range covering bonding and joint filling for tiling work.",
+              },
+              {
+                t: "Construction-focused",
+                d: "Products intended for construction and tiling projects, not general retail goods.",
+              },
+              {
+                t: "Convenient range",
+                d: "Adhesive in 20 kg and grout in 5 kg packs listed by Ugandan retailers.",
+              },
+              {
+                t: "Different applications",
+                d: "Solutions covering floor and wall tiling in indoor projects.",
+              },
+              {
+                t: "Growing catalogue",
+                d: "The Extra Bond range is being added as official product information is confirmed.",
+              },
             ].map((item) => (
               <div key={item.t} className="bg-ink p-7">
-                <h3 className="font-display text-lg text-ink-foreground">{item.t}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-muted">{item.d}</p>
+                <h3 className="font-display text-lg text-ink-foreground">
+                  {item.t}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                  {item.d}
+                </p>
               </div>
             ))}
           </div>
@@ -192,14 +268,20 @@ function HomePage() {
             title="Built for the people doing the work"
             align="center"
           />
+
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {customerTypes.map((c) => (
               <div
                 key={c.label}
                 className="flex items-center gap-4 border border-border bg-card p-5 transition-colors hover:border-accent"
               >
-                <c.icon className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
-                <span className="font-display text-sm font-semibold text-foreground">{c.label}</span>
+                <c.icon
+                  className="h-5 w-5 shrink-0 text-accent"
+                  aria-hidden="true"
+                />
+                <span className="font-display text-sm font-semibold text-foreground">
+                  {c.label}
+                </span>
               </div>
             ))}
           </div>
