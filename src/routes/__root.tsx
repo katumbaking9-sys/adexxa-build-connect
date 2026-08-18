@@ -229,14 +229,53 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
 
       <body>
-        {children}
-
-        <Scripts />
-      </body>
+  <BusinessStructuredData />
+  {children}
+  <Scripts />
+</body>
     </html>
   );
 }
+function BusinessStructuredData() {
+  const businessData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "ADEXXA International Ltd.",
+    alternateName: "ADEXXA",
+    description:
+      "Ugandan manufacturer of tile adhesive, grout and Extra Bond construction materials.",
+    url: "/",
+    email: "Adexxainternationaltd@gmail.com",
+    telephone: "+256703839388",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress:
+        "P.O BOX 132896 BWEYOGERERE OPP. UNBS Headquarters",
+      addressLocality: "Bweyogerere",
+      addressCountry: "UG",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Uganda",
+    },
+    knowsAbout: [
+      "Tile adhesive",
+      "Tile grout",
+      "Extra Bond",
+      "Tile installation",
+      "Construction materials",
+    ],
+  };
 
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(businessData),
+      }}
+    />
+  );
+}
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
