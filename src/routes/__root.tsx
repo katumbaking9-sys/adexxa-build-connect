@@ -94,35 +94,29 @@ function ErrorComponent({
     </div>
   );
 }
-
-export const Route = createRootRouteWithContext<{
-  queryClient: QueryClient;
-}>()({
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
-      {
-        charSet: "utf-8",
-      },
-
+      { charSet: "utf-8" },
       {
         name: "viewport",
         content: "width=device-width, initial-scale=1",
       },
 
       {
-        title:
-          "ADEXXA Uganda | Tile Adhesive, Grout & Construction Materials",
+        title: "ADEXXA Uganda — Tile Adhesive, Grout & Construction Materials",
       },
 
       {
         name: "description",
         content:
-          "ADEXXA International Ltd. manufactures tile adhesive, grout and Extra Bond construction materials in Uganda for contractors, installers, developers and homeowners.",
+          "ADEXXA Uganda manufactures tile adhesive, grout and Extra Bond construction materials for residential, commercial and professional tiling projects. P.O BOX 132896 BWEYOGERERE OPP. UNBS Headquarters.",
       },
 
       {
-        name: "robots",
-        content: "index, follow",
+        name: "keywords",
+        content:
+          "ADEXXA Uganda, tile adhesive Uganda, tile adhesive Kampala, grout Uganda, Extra Bond Uganda, construction materials Uganda, tile installation Uganda, ADEXXA International Ltd",
       },
 
       {
@@ -131,8 +125,8 @@ export const Route = createRootRouteWithContext<{
       },
 
       {
-        name: "theme-color",
-        content: "#171515",
+        name: "robots",
+        content: "index, follow",
       },
 
       {
@@ -141,25 +135,30 @@ export const Route = createRootRouteWithContext<{
       },
 
       {
-        property: "og:type",
-        content: "website",
-      },
-
-      {
         property: "og:title",
         content:
-          "ADEXXA Uganda | Tile Adhesive, Grout & Construction Materials",
+          "ADEXXA Uganda — Tile Adhesive, Grout & Construction Materials",
       },
 
       {
         property: "og:description",
         content:
-          "Quality tile adhesive, grout and Extra Bond solutions manufactured in Uganda.",
+          "Explore ADEXXA tile adhesive, grout and Extra Bond solutions manufactured in Uganda for modern construction and tiling projects.",
+      },
+
+      {
+        property: "og:type",
+        content: "website",
       },
 
       {
         property: "og:locale",
         content: "en_UG",
+      },
+
+      {
+        property: "og:url",
+        content: "/",
       },
 
       {
@@ -170,38 +169,13 @@ export const Route = createRootRouteWithContext<{
       {
         name: "twitter:title",
         content:
-          "ADEXXA Uganda | Tile Adhesive, Grout & Construction Materials",
+          "ADEXXA Uganda — Tile Adhesive, Grout & Construction Materials",
       },
 
       {
         name: "twitter:description",
         content:
-          "Quality tile adhesive, grout and Extra Bond solutions manufactured in Uganda.",
-      },
-
-      {
-        name: "geo.region",
-        content: "UG",
-      },
-
-      {
-        name: "geo.placename",
-        content: "Bweyogerere, Uganda",
-      },
-
-      {
-        name: "business:contact_data:country_name",
-        content: "Uganda",
-      },
-
-      {
-        name: "business:contact_data:locality",
-        content: "Bweyogerere",
-      },
-
-      {
-        name: "business:contact_data:postal_code",
-        content: "132896",
+          "ADEXXA tile adhesive, grout and Extra Bond solutions manufactured in Uganda.",
       },
     ],
 
@@ -233,29 +207,10 @@ export const Route = createRootRouteWithContext<{
         href: "/favicon.svg",
         type: "image/svg+xml",
       },
-    ],
 
-    scripts: [
       {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "ADEXXA International Ltd.",
-          alternateName: "ADEXXA",
-          description:
-            "Ugandan manufacturer of tile adhesive, grout and Extra Bond construction materials.",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress:
-              "Bweyogerere, Opp. UNBS Headquarters",
-            postalCode: "132896",
-            addressLocality: "Bweyogerere",
-            addressCountry: "UG",
-          },
-          telephone: "+256703839388",
-          email: "Adexxainternationaltd@gmail.com",
-        }),
+        rel: "canonical",
+        href: "/",
       },
     ],
   }),
