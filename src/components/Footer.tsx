@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Container } from "@/components/Section";
-import { whatsappLink } from "@/data/site";
+import { site, whatsappLink } from "@/data/site";
 
 function AILLogo() {
   return (
@@ -124,11 +124,7 @@ export const Footer = () => {
               </p>
 
               <p className="mt-2 text-sm font-medium leading-6 text-ink-foreground">
-                P.O BOX 132896
-                <br />
-                Bweyogerere
-                <br />
-                Opp. UNBS Headquarters
+                {site.contact.location.label}
               </p>
             </div>
 
@@ -181,12 +177,15 @@ export const Footer = () => {
                 rel="noreferrer noopener"
                 className="group flex items-start gap-3 text-sm text-ink-muted transition-colors duration-300 hover:text-ink-foreground"
               >
-                <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-accent transition-transform duration-300 group-hover:scale-110" />
+                <MessageCircle
+                  className="mt-0.5 h-4 w-4 shrink-0 text-accent transition-transform duration-300 group-hover:scale-110"
+                />
 
                 <span>
                   <span className="block text-xs uppercase tracking-wider text-ink-muted">
                     WhatsApp
                   </span>
+
                   <span className="mt-1 block font-medium">
                     +256 703 839388
                   </span>
@@ -198,12 +197,15 @@ export const Footer = () => {
                 href="tel:+256703839388"
                 className="group flex items-start gap-3 text-sm text-ink-muted transition-colors duration-300 hover:text-ink-foreground"
               >
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent transition-transform duration-300 group-hover:scale-110" />
+                <Phone
+                  className="mt-0.5 h-4 w-4 shrink-0 text-accent transition-transform duration-300 group-hover:scale-110"
+                />
 
                 <span>
                   <span className="block text-xs uppercase tracking-wider text-ink-muted">
                     Main line
                   </span>
+
                   <span className="mt-1 block font-medium">
                     +256 703 839388
                   </span>
@@ -215,12 +217,15 @@ export const Footer = () => {
                 href="tel:+256703839248"
                 className="group flex items-start gap-3 text-sm text-ink-muted transition-colors duration-300 hover:text-ink-foreground"
               >
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent transition-transform duration-300 group-hover:scale-110" />
+                <Phone
+                  className="mt-0.5 h-4 w-4 shrink-0 text-accent transition-transform duration-300 group-hover:scale-110"
+                />
 
                 <span>
                   <span className="block text-xs uppercase tracking-wider text-ink-muted">
                     Factory
                   </span>
+
                   <span className="mt-1 block font-medium">
                     +256 703 839248
                   </span>
@@ -232,7 +237,9 @@ export const Footer = () => {
                 href="mailto:Adexxainternationaltd@gmail.com"
                 className="group flex items-start gap-3 text-sm text-ink-muted transition-colors duration-300 hover:text-ink-foreground"
               >
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent transition-transform duration-300 group-hover:scale-110" />
+                <Mail
+                  className="mt-0.5 h-4 w-4 shrink-0 text-accent transition-transform duration-300 group-hover:scale-110"
+                />
 
                 <span className="min-w-0">
                   <span className="block text-xs uppercase tracking-wider text-ink-muted">
@@ -269,11 +276,7 @@ export const Footer = () => {
 
                   <br />
 
-                  P.O BOX 132896
-                  <br />
-                  Bweyogerere
-                  <br />
-                  Opp. UNBS Headquarters
+                  {site.contact.location.label}
                 </div>
               </div>
 
@@ -363,9 +366,13 @@ export const Footer = () => {
 
           <div className="flex flex-wrap items-center gap-3">
             <span>Tile Adhesive</span>
+
             <span className="h-1 w-1 rounded-full bg-accent" />
+
             <span>Grout</span>
+
             <span className="h-1 w-1 rounded-full bg-accent" />
+
             <span>Extra Bond</span>
           </div>
         </div>
