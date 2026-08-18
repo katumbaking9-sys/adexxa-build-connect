@@ -68,7 +68,7 @@ export const Footer = () => {
     <footer className="border-t border-border bg-card">
       <Container className="py-12">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          
+
           {/* Brand + AIL Manufacturer */}
           <div>
             <Link
@@ -132,6 +132,8 @@ export const Footer = () => {
             </h2>
 
             <div className="mt-4 space-y-4 text-sm">
+
+              {/* WhatsApp */}
               <a
                 href={whatsappLink()}
                 target="_blank"
@@ -142,6 +144,7 @@ export const Footer = () => {
                 <span>+256 703 839388</span>
               </a>
 
+              {/* Main Phone */}
               <a
                 href="tel:+256703839388"
                 className="flex items-start gap-3 text-muted-foreground hover:text-accent"
@@ -150,6 +153,7 @@ export const Footer = () => {
                 <span>+256 703 839388</span>
               </a>
 
+              {/* Secondary Phone */}
               <a
                 href="tel:+256703839248"
                 className="flex items-start gap-3 text-muted-foreground hover:text-accent"
@@ -158,6 +162,33 @@ export const Footer = () => {
                 <span>+256 703 839248</span>
               </a>
 
+              {/* The Yard */}
+              <a
+                href="tel:+256703841492"
+                className="flex items-start gap-3 text-muted-foreground hover:text-accent"
+              >
+                <Phone className="mt-0.5 h-4 w-4 shrink-0" />
+                <span>
+                  The Yard
+                  <br />
+                  +256 703 841 492
+                </span>
+              </a>
+
+              {/* Shop AG 39 */}
+              <a
+                href="tel:+256703839622"
+                className="flex items-start gap-3 text-muted-foreground hover:text-accent"
+              >
+                <Phone className="mt-0.5 h-4 w-4 shrink-0" />
+                <span>
+                  Shop AG 39
+                  <br />
+                  +256 703 839 622
+                </span>
+              </a>
+
+              {/* Email */}
               <a
                 href="mailto:Adexxainternationaltd@gmail.com"
                 className="flex items-start gap-3 text-muted-foreground hover:text-accent"
@@ -176,20 +207,60 @@ export const Footer = () => {
               Visit ADEXXA
             </h2>
 
-            <div className="mt-4 space-y-4 text-sm">
+            <div className="mt-4 space-y-5 text-sm">
+
+              {/* Factory */}
               <div className="flex items-start gap-3 text-muted-foreground">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                <span>Naggalama, along Kayunga Road, Uganda</span>
+
+                <span>
+                  <strong className="font-semibold text-foreground">
+                    Factory
+                  </strong>
+                  <br />
+                  Naggalama, along Kayunga Road, Uganda
+                </span>
               </div>
 
+              {/* The Yard */}
+              <div className="flex items-start gap-3 text-muted-foreground">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+
+                <span>
+                  <strong className="font-semibold text-foreground">
+                    The Yard
+                  </strong>
+                  <br />
+                  7th Street, Industrial Area
+                </span>
+              </div>
+
+              {/* Shop AG 39 */}
+              <div className="flex items-start gap-3 text-muted-foreground">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+
+                <span>
+                  <strong className="font-semibold text-foreground">
+                    Shop AG 39
+                  </strong>
+                  <br />
+                  Seroma One Stop Shopping Centre,
+                  <br />
+                  Nakasero
+                </span>
+              </div>
+
+              {/* Working Hours */}
               <div className="flex items-start gap-3 text-muted-foreground">
                 <Clock className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+
                 <span>
                   Monday – Saturday
                   <br />
                   8:00 AM – 5:00 PM
                 </span>
               </div>
+
             </div>
           </div>
         </div>
