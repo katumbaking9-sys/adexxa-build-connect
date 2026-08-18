@@ -6,15 +6,15 @@ import {
   useRouter,
   HeadContent,
   Scripts,
-  useLocation,
 } from "@tanstack/react-router";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppCta";
+import { site } from "@/data/site";
 
 function NotFoundComponent() {
   return (
@@ -95,70 +95,176 @@ function ErrorComponent({
   );
 }
 
-export const Route =
-  createRootRouteWithContext<{ queryClient: QueryClient }>()({
-    head: () => ({
-      meta: [
-        {
-          charSet: "utf-8",
-        },
-        {
-          name: "viewport",
-          content: "width=device-width, initial-scale=1",
-        },
-        {
-          title: "ADEXXA Uganda — Tile Adhesive & Grout",
-        },
-        {
-          name: "description",
-          content:
-            "ADEXXA manufactures tile adhesive and grout products in Uganda for construction and tiling projects.",
-        },
-        {
-          property: "og:site_name",
-          content: "ADEXXA",
-        },
-        {
-          property: "og:type",
-          content: "website",
-        },
-        {
-          name: "twitter:card",
-          content: "summary_large_image",
-        },
-      ],
+export const Route = createRootRouteWithContext<{
+  queryClient: QueryClient;
+}>()({
+  head: () => ({
+    meta: [
+      {
+        charSet: "utf-8",
+      },
 
-      links: [
-        {
-          rel: "stylesheet",
-          href: appCss,
-        },
-        {
-          rel: "preconnect",
-          href: "https://fonts.googleapis.com",
-        },
-        {
-          rel: "preconnect",
-          href: "https://fonts.gstatic.com",
-          crossOrigin: "anonymous",
-        },
-        {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap",
-        },
-        {
-          rel: "icon",
-          href: "/favicon.svg",
-          type: "image/svg+xml",
-        },
-      ],
-    }),
+      {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1",
+      },
 
-    shellComponent: RootShell,
-    component: RootComponent,
-    notFoundComponent: NotFoundComponent,
-    errorComponent: ErrorComponent,
-  });
+      {
+        title:
+          "ADEXXA Uganda | Tile Adhesive, Grout & Construction Materials",
+      },
+
+      {
+        name: "description",
+        content:
+          "ADEXXA International Ltd. manufactures tile adhesive, grout and Extra Bond construction materials in Uganda for contractors, installers, developers and homeowners.",
+      },
+
+      {
+        name: "robots",
+        content: "index, follow",
+      },
+
+      {
+        name: "author",
+        content: "ADEXXA International Ltd.",
+      },
+
+      {
+        name: "theme-color",
+        content: "#171515",
+      },
+
+      {
+        property: "og:site_name",
+        content: "ADEXXA",
+      },
+
+      {
+        property: "og:type",
+        content: "website",
+      },
+
+      {
+        property: "og:title",
+        content:
+          "ADEXXA Uganda | Tile Adhesive, Grout & Construction Materials",
+      },
+
+      {
+        property: "og:description",
+        content:
+          "Quality tile adhesive, grout and Extra Bond solutions manufactured in Uganda.",
+      },
+
+      {
+        property: "og:locale",
+        content: "en_UG",
+      },
+
+      {
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+
+      {
+        name: "twitter:title",
+        content:
+          "ADEXXA Uganda | Tile Adhesive, Grout & Construction Materials",
+      },
+
+      {
+        name: "twitter:description",
+        content:
+          "Quality tile adhesive, grout and Extra Bond solutions manufactured in Uganda.",
+      },
+
+      {
+        name: "geo.region",
+        content: "UG",
+      },
+
+      {
+        name: "geo.placename",
+        content: "Bweyogerere, Uganda",
+      },
+
+      {
+        name: "business:contact_data:country_name",
+        content: "Uganda",
+      },
+
+      {
+        name: "business:contact_data:locality",
+        content: "Bweyogerere",
+      },
+
+      {
+        name: "business:contact_data:postal_code",
+        content: "132896",
+      },
+    ],
+
+    links: [
+      {
+        rel: "stylesheet",
+        href: appCss,
+      },
+
+      {
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
+      },
+
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+
+      {
+        rel: "stylesheet",
+        href:
+          "https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap",
+      },
+
+      {
+        rel: "icon",
+        href: "/favicon.svg",
+        type: "image/svg+xml",
+      },
+    ],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "ADEXXA International Ltd.",
+          alternateName: "ADEXXA",
+          description:
+            "Ugandan manufacturer of tile adhesive, grout and Extra Bond construction materials.",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress:
+              "Bweyogerere, Opp. UNBS Headquarters",
+            postalCode: "132896",
+            addressLocality: "Bweyogerere",
+            addressCountry: "UG",
+          },
+          telephone: "+256703839388",
+          email: "Adexxainternationaltd@gmail.com",
+        }),
+      },
+    ],
+  }),
+
+  shellComponent: RootShell,
+  component: RootComponent,
+  notFoundComponent: NotFoundComponent,
+  errorComponent: ErrorComponent,
+});
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
@@ -169,49 +275,12 @@ function RootShell({ children }: { children: ReactNode }) {
 
       <body>
         {children}
+
         <Scripts />
       </body>
     </html>
   );
 }
-
-/* =========================================================
-   GLOBAL PAGE TRANSITION
-========================================================= */
-
-function PageTransition() {
-  const location = useLocation();
-
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    // Start the new page slightly hidden.
-    setVisible(false);
-
-    // Then smoothly reveal it.
-    const frame = requestAnimationFrame(() => {
-      setVisible(true);
-    });
-
-    return () => cancelAnimationFrame(frame);
-  }, [location.pathname]);
-
-  return (
-    <div
-      className={`transition-all duration-500 ease-out ${
-        visible
-          ? "translate-y-0 opacity-100"
-          : "translate-y-3 opacity-0"
-      }`}
-    >
-      <Outlet />
-    </div>
-  );
-}
-
-/* =========================================================
-   ROOT
-========================================================= */
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
@@ -222,7 +291,7 @@ function RootComponent() {
         <Navbar />
 
         <main className="flex-1">
-          <PageTransition />
+          <Outlet />
         </main>
 
         <Footer />
