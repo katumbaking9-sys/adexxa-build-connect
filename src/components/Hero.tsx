@@ -31,13 +31,13 @@ export function Hero() {
           </p>
 
           <h1 className="mt-5 max-w-3xl text-4xl leading-[1.02] text-ink-foreground sm:text-6xl lg:text-7xl reveal reveal-delay-1">
-            {site.tagline}
+            Advanced Bonding. Reliable Performance.
           </h1>
 
           <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ink-muted sm:text-xl reveal reveal-delay-2">
-            ADEXXA supplies tile adhesive and grout products for construction
-            and tiling projects — made for contractors, fundis, hardware
-            dealers and developers across Uganda.
+            High-performance tile adhesive and grout formulated with improved
+            bonding characteristics for ceramic, porcelain and marble tiling
+            works.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-3 reveal reveal-delay-3">
