@@ -174,23 +174,73 @@ function ContactPage() {
                 </li>
 
                 {/* Location */}
-                <li className="flex items-start gap-3">
-                  <MapPin
-                    className="mt-0.5 h-4 w-4 shrink-0 text-accent"
-                    aria-hidden="true"
-                  />
+               {/* Main Location */}
+<li className="flex items-start gap-3">
+  <MapPin
+    className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+    aria-hidden="true"
+  />
 
-                  <span>
-                    <span className="block font-semibold">
-                      Location
-                    </span>
+  <span>
+    <span className="block font-semibold">
+      Main Location
+    </span>
 
-                    <span className="mt-1.5 block text-muted-foreground">
-                      {site.contact.location.label}
-                    </span>
-                  </span>
-                </li>
+    <span className="mt-1.5 block text-muted-foreground">
+      {site.contact.location.label}
+    </span>
+  </span>
+</li>
 
+{/* The Yard */}
+<li className="flex items-start gap-3">
+  <MapPin
+    className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+    aria-hidden="true"
+  />
+
+  <span>
+    <span className="block font-semibold">
+      The Yard
+    </span>
+
+    <span className="mt-1.5 block text-muted-foreground">
+      7th Street, Industrial Area
+    </span>
+
+    <a
+      href="tel:+256703841492"
+      className="mt-1 block text-muted-foreground transition-colors hover:text-accent"
+    >
+      +256 703 841 492
+    </a>
+  </span>
+</li>
+
+{/* Seroma One Stop Shopping Centre */}
+<li className="flex items-start gap-3">
+  <MapPin
+    className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+    aria-hidden="true"
+  />
+
+  <span>
+    <span className="block font-semibold">
+      Shop AG 39
+    </span>
+
+    <span className="mt-1.5 block text-muted-foreground">
+      Seroma One Stop Shopping Centre, Nakasero
+    </span>
+
+    <a
+      href="tel:+256703839622"
+      className="mt-1 block text-muted-foreground transition-colors hover:text-accent"
+    >
+      +256 703 839 622
+    </a>
+  </span>
+</li>
                 {/* Working Hours */}
                 <li className="flex items-start gap-3">
                   <Clock
