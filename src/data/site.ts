@@ -43,10 +43,10 @@ export const site = {
     },
 
     location: {
-      value: "Naggalama, along Kayunga Road, Uganda",
-      label: "Naggalama, along Kayunga Road, Uganda",
-      isPlaceholder: false,
-    },
+  value: "P.O BOX 132896 BWEYOGERERE OPP. UNBS Headquarters",
+  label: "P.O BOX 132896 BWEYOGERERE OPP. UNBS Headquarters",
+  isPlaceholder: false,
+},
 
     hours: {
       value: "8:00 AM – 5:00 PM",
