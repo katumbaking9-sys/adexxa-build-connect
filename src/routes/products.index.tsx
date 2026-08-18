@@ -162,6 +162,7 @@ function ProductsPage() {
     setQuery("");
     setPackaging("all");
     setColour("all");
+
     navigate({
       search: {
         category: "all",
@@ -174,6 +175,7 @@ function ProductsPage() {
       {/* =========================================================
           PREMIUM HERO
       ========================================================== */}
+
       <section className="relative isolate overflow-hidden bg-ink">
         {/* Background grid */}
         <div
@@ -188,7 +190,8 @@ function ProductsPage() {
         />
 
         <Container className="relative py-20 sm:py-24 lg:py-28">
-          <div className="max-w-4xl">
+          {/* Hero content */}
+          <div className="max-w-4xl reveal">
             <div className="flex items-center gap-3">
               <span className="h-px w-10 bg-accent" />
 
@@ -197,20 +200,20 @@ function ProductsPage() {
               </p>
             </div>
 
-            <h1 className="mt-6 max-w-4xl font-display text-5xl font-bold leading-[0.98] tracking-tight text-ink-foreground sm:text-6xl lg:text-7xl">
+            <h1 className="mt-6 max-w-4xl font-display text-5xl font-bold leading-[0.98] tracking-tight text-ink-foreground sm:text-6xl lg:text-7xl reveal reveal-delay-1">
               Materials made for
               <span className="block text-accent">
                 better tiling.
               </span>
             </h1>
 
-            <p className="mt-7 max-w-2xl text-base leading-7 text-ink-muted sm:text-lg">
+            <p className="mt-7 max-w-2xl text-base leading-7 text-ink-muted sm:text-lg reveal reveal-delay-2">
               Explore the ADEXXA range of tile adhesives, grout and
               Extra Bond solutions manufactured for construction and
               tiling projects in Uganda.
             </p>
 
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="mt-9 flex flex-wrap gap-3 reveal reveal-delay-3">
               <a
                 href="#catalogue"
                 className={btn("accent", "lg")}
@@ -230,29 +233,32 @@ function ProductsPage() {
           </div>
 
           {/* Stats */}
-          <div className="mt-16 grid max-w-3xl border border-ink-border sm:grid-cols-3">
-            <div className="border-b border-ink-border p-5 sm:border-b-0 sm:border-r">
+          <div className="mt-16 grid max-w-3xl border border-ink-border reveal reveal-delay-3 sm:grid-cols-3">
+            <div className="border-b border-ink-border p-5 sm:border-b-0 sm:border-r reveal reveal-delay-1">
               <p className="text-3xl font-bold text-ink-foreground">
                 {products.length}
               </p>
+
               <p className="mt-1 text-xs uppercase tracking-wider text-ink-muted">
                 Product lines
               </p>
             </div>
 
-            <div className="border-b border-ink-border p-5 sm:border-b-0 sm:border-r">
+            <div className="border-b border-ink-border p-5 sm:border-b-0 sm:border-r reveal reveal-delay-2">
               <p className="text-3xl font-bold text-ink-foreground">
                 20kg
               </p>
+
               <p className="mt-1 text-xs uppercase tracking-wider text-ink-muted">
                 Adhesive pack
               </p>
             </div>
 
-            <div className="p-5">
+            <div className="p-5 reveal reveal-delay-3">
               <p className="text-3xl font-bold text-ink-foreground">
                 Uganda
               </p>
+
               <p className="mt-1 text-xs uppercase tracking-wider text-ink-muted">
                 Manufactured locally
               </p>
@@ -264,10 +270,14 @@ function ProductsPage() {
       {/* =========================================================
           CATALOGUE
       ========================================================== */}
-      <Section id="catalogue" className="scroll-mt-20">
+
+      <Section
+        id="catalogue"
+        className="scroll-mt-20"
+      >
         <Container>
           {/* Section intro */}
-          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end reveal">
             <div>
               <div className="flex items-center gap-3">
                 <span className="h-px w-8 bg-accent" />
@@ -299,7 +309,8 @@ function ProductsPage() {
           {/* =====================================================
               SEARCH / FILTER BAR
           ====================================================== */}
-          <div className="mt-10 overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+
+          <div className="mt-10 overflow-hidden rounded-2xl border border-border bg-card shadow-sm reveal reveal-delay-1">
             {/* Search */}
             <div className="relative border-b border-border">
               <Search
@@ -380,6 +391,7 @@ function ProductsPage() {
                       {category === "all" && (
                         <Check className="h-3 w-3" />
                       )}
+
                       All
                     </button>
 
@@ -399,6 +411,7 @@ function ProductsPage() {
                         {category === c.id && (
                           <Check className="h-3 w-3" />
                         )}
+
                         {c.name}
                       </button>
                     ))}
@@ -471,6 +484,7 @@ function ProductsPage() {
           {/* =====================================================
               PRODUCT CATEGORIES
           ====================================================== */}
+
           <div className="mt-16 space-y-20">
             {categories
               .filter(
@@ -478,15 +492,21 @@ function ProductsPage() {
                   category === "all" ||
                   c.id === category,
               )
-              .map((c) => {
+              .map((c, categoryIndex) => {
                 const items = filtered.filter(
                   (p) => p.category === c.id,
                 );
 
                 return (
-                  <section key={c.id}>
+                  <section
+                    key={c.id}
+                    className="reveal"
+                    style={{
+                      animationDelay: `${categoryIndex * 120}ms`,
+                    }}
+                  >
                     {/* Category heading */}
-                    <div className="relative overflow-hidden rounded-2xl border border-border bg-card">
+                    <div className="relative overflow-hidden rounded-2xl border border-border bg-card reveal reveal-delay-1">
                       <div className="absolute inset-y-0 left-0 w-1 bg-accent" />
 
                       <div className="flex flex-col gap-5 p-6 sm:p-8 md:flex-row md:items-center md:justify-between">
@@ -531,7 +551,7 @@ function ProductsPage() {
                         ))}
                       </div>
                     ) : (
-                      <div className="mt-8 rounded-2xl border border-dashed border-border p-12 text-center">
+                      <div className="mt-8 rounded-2xl border border-dashed border-border p-12 text-center reveal">
                         <p className="text-sm text-muted-foreground">
                           No products match the current filters.
                         </p>
@@ -555,10 +575,12 @@ function ProductsPage() {
       {/* =========================================================
           PREMIUM TRUST STRIP
       ========================================================== */}
-      <section className="border-y border-border bg-muted">
+
+      <section className="border-y border-border bg-muted reveal">
         <Container className="py-14">
           <div className="grid gap-8 md:grid-cols-3">
-            <div>
+            {/* Trust item 1 */}
+            <div className="reveal reveal-delay-1">
               <p className="font-display text-lg font-bold">
                 Manufactured in Uganda
               </p>
@@ -569,7 +591,8 @@ function ProductsPage() {
               </p>
             </div>
 
-            <div>
+            {/* Trust item 2 */}
+            <div className="reveal reveal-delay-2">
               <p className="font-display text-lg font-bold">
                 Built for tiling
               </p>
@@ -580,7 +603,8 @@ function ProductsPage() {
               </p>
             </div>
 
-            <div>
+            {/* Trust item 3 */}
+            <div className="reveal reveal-delay-3">
               <p className="font-display text-lg font-bold">
                 Need help choosing?
               </p>
@@ -602,6 +626,7 @@ function ProductsPage() {
         </Container>
       </section>
 
+      {/* CTA */}
       <CTASection />
     </>
   );
