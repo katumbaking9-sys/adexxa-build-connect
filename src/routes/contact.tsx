@@ -7,41 +7,58 @@ import {
   Clock,
   ArrowRight,
 } from "lucide-react";
-import { Container, Section, SectionHeading } from "@/components/Section";
+
+import { Container, Section } from "@/components/Section";
 import { ContactForm } from "@/components/ContactForm";
 import { site, whatsappLink } from "@/data/site";
 import { btn } from "@/lib/ui";
 
-type ContactSearch = { product?: string | undefined };
+type ContactSearch = {
+  product?: string | undefined;
+};
 
 export const Route = createFileRoute("/contact")({
   validateSearch: (search: Record<string, unknown>): ContactSearch => {
     const p = search["product"];
-    return typeof p === "string" ? { product: p } : {};
+
+    return typeof p === "string"
+      ? { product: p }
+      : {};
   },
 
   head: () => ({
     meta: [
       {
-        title: "Contact ADEXXA — Tile Adhesive & Grout Enquiries Uganda",
+        title:
+          "Contact ADEXXA Uganda — Tile Adhesive, Grout & Construction Materials",
       },
       {
         name: "description",
         content:
-          "Send an enquiry to ADEXXA about tile adhesive, grout or the Extra Bond range. Contact details for the Ugandan manufacturer of tile installation materials.",
+          "Contact ADEXXA International Ltd. for tile adhesive, grout and Extra Bond enquiries in Uganda. P.O BOX 132896 BWEYOGERERE OPP. UNBS Headquarters.",
+      },
+      {
+        name: "keywords",
+        content:
+          "contact ADEXXA Uganda, ADEXXA contact, tile adhesive Uganda, grout Uganda, construction materials Uganda, Bweyogerere",
       },
       {
         property: "og:title",
-        content: "Contact ADEXXA — Tile Adhesive & Grout Enquiries Uganda",
+        content:
+          "Contact ADEXXA Uganda — Tile Adhesive, Grout & Construction Materials",
       },
       {
         property: "og:description",
         content:
-          "Enquire about ADEXXA tile adhesive and grout products in Uganda.",
+          "Get in touch with ADEXXA International Ltd. about tile adhesive, grout and Extra Bond products in Uganda.",
       },
       {
         property: "og:type",
         content: "website",
+      },
+      {
+        property: "og:locale",
+        content: "en_UG",
       },
       {
         property: "og:url",
@@ -65,7 +82,9 @@ function ContactPage() {
 
   return (
     <>
-      {/* HERO */}
+      {/* =========================================================
+          HERO
+      ========================================================== */}
       <Section className="relative overflow-hidden border-b border-border bg-background pb-16 pt-16 sm:pb-20 sm:pt-20">
         <Container>
           <div className="max-w-3xl">
@@ -84,14 +103,21 @@ function ContactPage() {
               with the ADEXXA team about tile adhesive, grout and availability
               in Uganda.
             </p>
+
+            <p className="mt-5 text-sm font-medium text-muted-foreground">
+              {site.contact.location.label}
+            </p>
           </div>
         </Container>
       </Section>
 
-      {/* MAIN CONTACT AREA */}
+      {/* =========================================================
+          MAIN CONTACT AREA
+      ========================================================== */}
       <Section className="py-14 sm:py-20">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+
             {/* FORM */}
             <div className="border border-border bg-card p-6 sm:p-8 lg:p-10">
               <div className="mb-8">
@@ -118,6 +144,7 @@ function ContactPage() {
 
             {/* CONTACT DETAILS */}
             <div className="space-y-6">
+
               <div className="border border-border bg-card p-6 sm:p-8">
                 <div className="mb-7">
                   <div className="mb-3 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
@@ -136,6 +163,7 @@ function ContactPage() {
                 </div>
 
                 <div className="space-y-6">
+
                   {/* WhatsApp */}
                   <div className="flex gap-4">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-border bg-background">
@@ -146,7 +174,9 @@ function ContactPage() {
                     </div>
 
                     <div className="min-w-0">
-                      <p className="text-sm font-semibold">WhatsApp</p>
+                      <p className="text-sm font-semibold">
+                        WhatsApp
+                      </p>
 
                       <a
                         href={whatsappLink()}
@@ -159,7 +189,7 @@ function ContactPage() {
                     </div>
                   </div>
 
-                  {/* Office */}
+                  {/* Main Phone */}
                   <div className="flex gap-4">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-border bg-background">
                       <Phone
@@ -169,7 +199,9 @@ function ContactPage() {
                     </div>
 
                     <div className="min-w-0">
-                      <p className="text-sm font-semibold">Office</p>
+                      <p className="text-sm font-semibold">
+                        Office
+                      </p>
 
                       <a
                         href={`tel:${site.contact.phone.value}`}
@@ -180,7 +212,7 @@ function ContactPage() {
                     </div>
                   </div>
 
-                  {/* Factory */}
+                  {/* Factory Phone */}
                   <div className="flex gap-4">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-border bg-background">
                       <Phone
@@ -190,7 +222,9 @@ function ContactPage() {
                     </div>
 
                     <div className="min-w-0">
-                      <p className="text-sm font-semibold">Factory</p>
+                      <p className="text-sm font-semibold">
+                        Factory
+                      </p>
 
                       <a
                         href={`tel:${site.contact.factoryPhone.value}`}
@@ -211,7 +245,9 @@ function ContactPage() {
                     </div>
 
                     <div className="min-w-0">
-                      <p className="text-sm font-semibold">Email</p>
+                      <p className="text-sm font-semibold">
+                        Email
+                      </p>
 
                       <a
                         href={`mailto:${site.contact.email.value}`}
@@ -221,6 +257,27 @@ function ContactPage() {
                       </a>
                     </div>
                   </div>
+
+                  {/* Main Address */}
+                  <div className="flex gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-border bg-background">
+                      <MapPin
+                        className="h-4 w-4 text-accent"
+                        aria-hidden="true"
+                      />
+                    </div>
+
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold">
+                        Main business address
+                      </p>
+
+                      <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                        {site.contact.location.label}
+                      </p>
+                    </div>
+                  </div>
+
                 </div>
               </div>
 
@@ -245,7 +302,7 @@ function ContactPage() {
 
                   <a
                     href={whatsappLink(
-                      "Hello ADEXXA, I would like to make an enquiry."
+                      "Hello ADEXXA, I would like to make an enquiry.",
                     )}
                     target="_blank"
                     rel="noreferrer noopener"
@@ -262,7 +319,9 @@ function ContactPage() {
         </Container>
       </Section>
 
-      {/* LOCATIONS */}
+      {/* =========================================================
+          LOCATIONS
+      ========================================================== */}
       <Section className="border-t border-border bg-muted/30 py-14 sm:py-20">
         <Container>
           <div className="mb-10 max-w-2xl">
@@ -281,6 +340,7 @@ function ContactPage() {
           </div>
 
           <div className="grid gap-5 md:grid-cols-3">
+
             {/* Main Location */}
             <div className="group border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
               <div className="flex h-10 w-10 items-center justify-center border border-border bg-background">
@@ -292,8 +352,31 @@ function ContactPage() {
               </h3>
 
               <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                {site.contact.location.label}
+                {site.locations.main.address}
               </p>
+            </div>
+
+            {/* Factory */}
+            <div className="group border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
+              <div className="flex h-10 w-10 items-center justify-center border border-border bg-background">
+                <MapPin className="h-4 w-4 text-accent" />
+              </div>
+
+              <h3 className="mt-5 font-display text-lg font-semibold">
+                {site.locations.factory.name}
+              </h3>
+
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                {site.locations.factory.address}
+              </p>
+
+              <a
+                href={`tel:${site.locations.factory.phone}`}
+                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-foreground"
+              >
+                {site.locations.factory.phone}
+                <ArrowRight className="h-3.5 w-3.5" />
+              </a>
             </div>
 
             {/* The Yard */}
@@ -303,68 +386,75 @@ function ContactPage() {
               </div>
 
               <h3 className="mt-5 font-display text-lg font-semibold">
-                The Yard
+                {site.locations.yard.name}
               </h3>
 
               <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                7th Street, Industrial Area
+                {site.locations.yard.address}
               </p>
 
               <a
-                href="tel:+256703841492"
+                href={`tel:${site.locations.yard.phone}`}
                 className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-foreground"
               >
-                +256 703 841 492
+                {site.locations.yard.phone}
                 <ArrowRight className="h-3.5 w-3.5" />
               </a>
             </div>
 
             {/* Shop AG 39 */}
-            <div className="group border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
+            <div className="group border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 md:col-span-3 lg:col-span-1">
               <div className="flex h-10 w-10 items-center justify-center border border-border bg-background">
                 <MapPin className="h-4 w-4 text-accent" />
               </div>
 
               <h3 className="mt-5 font-display text-lg font-semibold">
-                Shop AG 39
+                {site.locations.shop.name}
               </h3>
 
               <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                Seroma One Stop Shopping Centre, Nakasero
+                {site.locations.shop.address}
               </p>
 
               <a
-                href="tel:+256703839622"
+                href={`tel:${site.locations.shop.phone}`}
                 className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-foreground"
               >
-                +256 703 839 622
+                {site.locations.shop.phone}
                 <ArrowRight className="h-3.5 w-3.5" />
               </a>
             </div>
+
           </div>
         </Container>
       </Section>
 
-      {/* WORKING HOURS */}
+      {/* =========================================================
+          WORKING HOURS
+      ========================================================== */}
       <Section className="border-t border-border py-10 sm:py-12">
         <Container>
           <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+
             <div className="flex items-center gap-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center border border-border bg-card">
                 <Clock className="h-4 w-4 text-accent" />
               </div>
 
               <div>
-                <p className="text-sm font-semibold">Working hours</p>
+                <p className="text-sm font-semibold">
+                  Working hours
+                </p>
+
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Monday – Saturday · 8:00 AM – 5:00 PM
+                  Monday – Saturday · {site.contact.hours.label}
                 </p>
               </div>
             </div>
 
             <a
               href={whatsappLink(
-                "Hello ADEXXA, I would like to make an enquiry."
+                "Hello ADEXXA, I would like to make an enquiry.",
               )}
               target="_blank"
               rel="noreferrer noopener"
@@ -373,6 +463,7 @@ function ContactPage() {
               Contact us on WhatsApp
               <ArrowRight className="h-4 w-4" />
             </a>
+
           </div>
         </Container>
       </Section>
