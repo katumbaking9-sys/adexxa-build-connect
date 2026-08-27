@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://adexxa-build-connect.katumbaking9.workers.dev/sitemap.xml
