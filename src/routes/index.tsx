@@ -16,10 +16,9 @@ import {
 import { Hero } from "@/components/Hero";
 import { Container, Section, SectionHeading } from "@/components/Section";
 import { ProductCard } from "@/components/ProductCard";
-import { ApplicationCard } from "@/components/ApplicationCard";
 import { CTASection } from "@/components/CTASection";
 import { products } from "@/data/products";
-import { site, whatsappLink } from "@/data/site";
+import { whatsappLink } from "@/data/site";
 import manufacturingImg from "@/assets/manufacturing.jpg";
 import { btn } from "@/lib/ui";
 
