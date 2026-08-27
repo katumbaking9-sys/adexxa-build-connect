@@ -1,3 +1,4 @@
+```tsx
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -25,47 +26,109 @@ import { btn } from "@/lib/ui";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ADEXXA Uganda — Tile Adhesive & Grout Manufacturer" },
+      {
+        title: "ADEXXA Uganda | Tile Adhesive & Grout Manufacturer",
+      },
       {
         name: "description",
         content:
-          "ADEXXA manufactures tile adhesive and grout products in Uganda for construction and tiling projects. Explore the catalogue and send an enquiry.",
+          "ADEXXA is a Ugandan manufacturer of tile adhesive and grout products for contractors, builders, tile installers, hardware dealers and construction projects.",
       },
+
+      // Open Graph
       {
         property: "og:title",
-        content: "ADEXXA Uganda — Tile Adhesive & Grout Manufacturer",
+        content: "ADEXXA Uganda | Tile Adhesive & Grout Manufacturer",
       },
       {
         property: "og:description",
         content:
-          "Ugandan manufacturer of tile adhesive and grout for contractors, fundis, hardware dealers and developers.",
+          "Ugandan manufacturer of tile adhesive and grout products for construction, tiling and finishing projects.",
       },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      {
+        property: "og:type",
+        content: "website",
+      },
+      {
+        property: "og:url",
+        content:
+          "https://adexxa-build-connect.katumbaking9.workers.dev/",
+      },
+      {
+        property: "og:site_name",
+        content: "ADEXXA Uganda",
+      },
+      {
+        property: "og:locale",
+        content: "en_UG",
+      },
+
+      // Twitter / X
+      {
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+      {
+        name: "twitter:title",
+        content: "ADEXXA Uganda | Tile Adhesive & Grout Manufacturer",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Ugandan manufacturer of tile adhesive and grout products for construction and tiling projects.",
+      },
+
+      // Search engine instructions
+      {
+        name: "robots",
+        content: "index, follow",
+      },
     ],
+
     links: [
-      { rel: "canonical", href: "/" },
+      {
+        rel: "canonical",
+        href:
+          "https://adexxa-build-connect.katumbaking9.workers.dev/",
+      },
       {
         rel: "icon",
         type: "image/png",
         href: "/adexxa-ail-favicon.png",
       },
     ],
+
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "ADEXXA",
-          description:
-            "Ugandan manufacturer of tile adhesive and grout products for the construction and tiling market.",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress:
-              "P.O BOX 132896 BWEYOGERERE OPP. UNBS Headquarters",
-            addressCountry: "UG",
-          },
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id":
+                "https://adexxa-build-connect.katumbaking9.workers.dev/#organization",
+              name: "ADEXXA",
+              url:
+                "https://adexxa-build-connect.katumbaking9.workers.dev/",
+              description:
+                "Ugandan manufacturer of tile adhesive and grout products for the construction and tiling market.",
+            },
+            {
+              "@type": "WebSite",
+              "@id":
+                "https://adexxa-build-connect.katumbaking9.workers.dev/#website",
+              url:
+                "https://adexxa-build-connect.katumbaking9.workers.dev/",
+              name: "ADEXXA Uganda",
+              description:
+                "Tile adhesive and grout manufacturer in Uganda.",
+              publisher: {
+                "@id":
+                  "https://adexxa-build-connect.katumbaking9.workers.dev/#organization",
+              },
+            },
+          ],
         }),
       },
     ],
@@ -383,7 +446,10 @@ function HomePage() {
       </Section>
 
       {/* WHY ADEXXA */}
-      <Section tone="ink" className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
+      <Section
+        tone="ink"
+        className="relative overflow-hidden py-20 sm:py-24 lg:py-28"
+      >
         <div
           className="pointer-events-none absolute inset-0 hairline-grid opacity-30"
           aria-hidden="true"
@@ -515,3 +581,4 @@ function HomePage() {
     </>
   );
 }
+```
